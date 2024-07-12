@@ -1,21 +1,25 @@
 from app.models import db, Post, environment,SCHEMA
 from sqlalchemy.sql import text
+from datetime import datetime
 
 def seed_posts():
     post1 = Post(
         title = "first post",
         body = 'this is the bodyyyy',
-        userId = 1
+        user_id = 1,
+        time_created = datetime(2024, 7, 12, 1, 0)
     )
     post2 = Post(
         title = "second post",
         body = 'this is the bodyyyy',
-        userId = 2
+        user_id = 2,
+        time_created = datetime(2024, 7, 12, 1, 0)
     )
     post3 = Post(
         title = "third post",
         body = 'this is the bodyyyy',
-        userId = 3
+        user_id = 3,
+        time_created = datetime(2024, 7, 12, 1, 0)
     )
 
     db.session.add(post1)
