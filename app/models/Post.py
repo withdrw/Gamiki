@@ -19,7 +19,7 @@ class Post(db.Model):
             'id':self.id,
             'title': self.title,
             'body':self.body,
-            'userId': self.user_id,
+            'ownerId': self.user_id,
             'timeCreated': self.time_created,
             'imageUrl': self.post_image,
             'likes': len(self.likes)
@@ -40,3 +40,5 @@ class PostImage(db.Model):
             'imageUrl' : self.image_url,
             'postId' : self.post_id
         }
+
+
