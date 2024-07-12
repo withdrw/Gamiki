@@ -7,19 +7,16 @@ def seed_posts():
         title = "first post",
         body = 'this is the bodyyyy',
         user_id = 1,
-        time_created = datetime(2024, 7, 12, 1, 0)
     )
     post2 = Post(
         title = "second post",
         body = 'this is the bodyyyy',
         user_id = 2,
-        time_created = datetime(2024, 7, 12, 1, 0)
     )
     post3 = Post(
         title = "third post",
         body = 'this is the bodyyyy',
         user_id = 3,
-        time_created = datetime(2024, 7, 12, 1, 0)
     )
 
     db.session.add(post1)

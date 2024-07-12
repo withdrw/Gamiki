@@ -40,7 +40,7 @@ def one_post(id):
 
 @post_routes.route('/')
 def all_posts():
-    print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
+    print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS,")
     '''
         Get all posts in the database
     '''
