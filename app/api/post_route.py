@@ -2,12 +2,14 @@ from app.models import db,Post,Comment,User
 from flask import Blueprint, jsonify,request
 from flasklogin import login_required, current_user
 from app.forms import PostForm
-post_routes = Blueprint('posts', __name__)
+
+
+post = Blueprint('posts', __name__)
 
 
 
 
-@post_routes.route('/<int:id>/comments')
+@post.route('/<int:id>/comments')
 def all_comments(id):
     '''
         Get all comments for a post in the database
@@ -19,7 +21,7 @@ def all_comments(id):
     return {"Comments":comments}
 
 
-@post_routes.route('/<int:id>')
+@post.route('/<int:id>')
 def one_post(id):
     '''
         Get one post in the database by the id
@@ -36,7 +38,7 @@ def one_post(id):
         comment['author'] = user.to_dict()
     return {"Post":postObj}
 
-@post_routes.route('/')
+@post.route('/all')
 def all_posts():
     '''
         Get all posts in the database
@@ -54,7 +56,7 @@ def all_posts():
 
 
 
-@post_routes.route('/', methods=['POST'])
+@post.route('/', methods=['POST'])
 @login_required
 def make_post():
     '''
@@ -78,7 +80,7 @@ def make_post():
         print(form.errors)
         return {"message":"Bad Request", "errors":form.errors}, 400
 
-@post_routes.route('/<int:id>', methods=['PUT'])
+@post.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_post(id):
     '''
@@ -101,3 +103,19 @@ def edit_post(id):
         return {"Post":safe_post}
     if form.errors:
         return {"message":"Bad Request", "errors":form.errors}, 400
+
+@post.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_post(id):
+    '''
+        If logged in and the owner of the
+        post, delete the post from the
+        database if it exists
+    '''
+    post = Post.query.filter_by(id=id).first()
+    if current_user.id == post.user_id:
+        db.session.delete(post)
+        db.session.commit()
+        return {"id":id}
+    else:
+        return {"id":None}, 404

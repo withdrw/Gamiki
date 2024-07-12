@@ -14,6 +14,7 @@ class Post(db.Model):
     time_created = db.Column(db.DateTime(timezone = True),server_default = db.func.now())
     post_image = db.Column(db.String, nullable = False)
     likes = db.relationship('Like', backref='post', lazy=True)
+    comments= db.relationship('Comment', cascade = "all, delete")
     def to_dict(self):
         return {
             'id':self.id,
@@ -40,5 +41,3 @@ class PostImage(db.Model):
             'imageUrl' : self.image_url,
             'postId' : self.post_id
         }
-
-
