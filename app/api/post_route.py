@@ -1,13 +1,13 @@
-from app.models import db,Post,Comment,User
+from app.models import db,Post,Comment,User,Like
 from flask import Blueprint, jsonify,request
 from flask_login import login_required, current_user
-from app.forms import PostForm
+from app.forms import PostForm,CommentForm
 
 
 post_routes = Blueprint('posts', __name__)
 
 
-
+## GET ALL COMMENTS
 
 @post_routes.route('/<int:id>/comments')
 def all_comments(id):
@@ -20,6 +20,8 @@ def all_comments(id):
         comment['author'] = author.username
     return {"Comments":comments}
 
+
+## GET ONE POST BY ITS ID
 
 @post_routes.route('/<int:id>')
 def one_post(id):
@@ -38,22 +40,22 @@ def one_post(id):
         comment['author'] = user.to_dict()
     return {"Post":postObj}
 
+##
+
+
 @post_routes.route('/')
 def all_posts():
-    print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS,")
-    '''
-        Get all posts in the database
-    '''
     posts = [x.to_dict() for x in Post.query.all()]
     for post in posts:
-        author = User.query.filter_by(id = post['ownerId']).first()
+        author = User.query.filter_by(id=post['ownerId']).first()
         post['author'] = author.username
-        post['Comments'] = [x.to_dict() for x in Comment.query.filter_by(post_id = post['id']).all()]
-        for comment in post['Comments']:
-            user = User.query.filter_by(id = comment['ownerId']).first()
+        comments = [x.to_dict() for x in Comment.query.filter_by(post_id=post['id']).all()]
+        post['Comments'] = []
+        for comment in comments:
+            user = User.query.filter_by(id=comment['ownerId']).first()
             comment['author'] = user.to_dict()
-    return {"Posts":posts}
-
+            post['Comments'].append(comment)
+    return {"Posts": posts}
 
 
 @post_routes.route('/', methods=['POST'])
@@ -119,3 +121,56 @@ def delete_post(id):
         return {"id":id}
     else:
         return {"id":None}, 404
+
+@post_routes.route('/<int:id>/comments', methods=["POST"])
+@login_required
+def make_comment(id):
+    '''
+        If user is logged in, make a new comment for a
+        post and add it to the database
+    '''
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_comment=Comment(
+            body=form.data['body'],
+            post_id=id,
+            user_id=current_user.id,
+            is_primary=False
+        )
+        db.session.add(new_comment)
+        db.session.commit()
+        safe_comment = new_comment.to_dict()
+        x_post = Post.query.filter_by(id=id).first()
+        post = x_post.to_dict()
+        owner = User.query.filter_by(id= post['ownerId']).first()
+        post['owner'] = owner.to_dict()
+        safe_comment['mainPost'] = post
+        return {"Comment":safe_comment}
+    if form.errors:
+        print(form.errors)
+        return {"message":"Bad Request", "errors":form.errors}, 400
+
+@post_routes.route('/<int:id>/likes', methods = ['POST'])
+# @login_required
+def save_post(id):
+    '''
+        Creates a relation to like the
+        post for the user
+    '''
+    x_post = Post.query.filter_by(id=id).first()
+    if x_post != None:
+        new_like = Like(
+            post_id = id,
+            user_id = current_user.id
+        )
+        db.session.add(new_like)
+        db.session.commit()
+        safe_like = new_like.to_dict()
+        post = x_post.to_dict()
+        author = User.query.filter_by(id = post['ownerId']).first()
+        post['author'] = author.username
+        safe_like['post'] = post
+        return {'Like':safe_like}
+    else:
+        return {'message':"Post could not be found"}, 404

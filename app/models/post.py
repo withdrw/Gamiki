@@ -13,7 +13,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')),nullable = False)
     time_created = db.Column(db.DateTime(timezone = True),server_default = db.func.now())
     # post_image = db.Column(db.String, nullable = False)
-    # likes = db.relationship('Like', backref='post', lazy=True)
+    likes = db.relationship('Like', cascade="all, delete")
     comments= db.relationship('Comment', cascade = "all, delete")
     def to_dict(self):
         return {
@@ -23,7 +23,7 @@ class Post(db.Model):
             'ownerId': self.user_id,
             'timeCreated': self.time_created,
             # 'imageUrl': self.post_image,
-            # 'likes': len(self.likes)
+            'likes': len(self.likes)
         }
 
 
