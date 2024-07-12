@@ -1,15 +1,15 @@
 from app.models import db,Post,Comment,User
 from flask import Blueprint, jsonify,request
-from flasklogin import login_required, current_user
+from flask_login import login_required, current_user
 from app.forms import PostForm
 
 
-post = Blueprint('posts', __name__)
+post_routes = Blueprint('posts', __name__)
 
 
 
 
-@post.route('/<int:id>/comments')
+@post_routes.route('/<int:id>/comments')
 def all_comments(id):
     '''
         Get all comments for a post in the database
@@ -21,7 +21,7 @@ def all_comments(id):
     return {"Comments":comments}
 
 
-@post.route('/<int:id>')
+@post_routes.route('/<int:id>')
 def one_post(id):
     '''
         Get one post in the database by the id
@@ -38,11 +38,11 @@ def one_post(id):
         comment['author'] = user.to_dict()
     return {"Post":postObj}
 
-@post.route('/all')
+@post_routes.route('/')
 def all_posts():
+    print("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
     '''
         Get all posts in the database
-
     '''
     posts = [x.to_dict() for x in Post.query.all()]
     for post in posts:
@@ -56,7 +56,7 @@ def all_posts():
 
 
 
-@post.route('/', methods=['POST'])
+@post_routes.route('/', methods=['POST'])
 @login_required
 def make_post():
     '''
@@ -80,7 +80,7 @@ def make_post():
         print(form.errors)
         return {"message":"Bad Request", "errors":form.errors}, 400
 
-@post.route('/<int:id>', methods=['PUT'])
+@post_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_post(id):
     '''
@@ -104,7 +104,7 @@ def edit_post(id):
     if form.errors:
         return {"message":"Bad Request", "errors":form.errors}, 400
 
-@post.route('/<int:id>', methods=['DELETE'])
+@post_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_post(id):
     '''
