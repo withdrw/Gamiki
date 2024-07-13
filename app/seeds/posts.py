@@ -8,6 +8,11 @@ def seed_posts():
         body = 'this is the bodyyyy',
         user_id = 1,
     )
+    post4 = Post(
+        title = "post for testing post",
+        body = 'this is the bodyyyy',
+        user_id = 1,
+    )
     post2 = Post(
         title = "second post",
         body = 'this is the bodyyyy',
@@ -22,6 +27,7 @@ def seed_posts():
     db.session.add(post1)
     db.session.add(post2)
     db.session.add(post3)
+    db.session.add(post4)
 
     db.session.commit()
 
