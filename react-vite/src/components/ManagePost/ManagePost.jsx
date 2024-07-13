@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPostsThunk } from "../../redux/post";
 import ManagePostModal from "../EditModal/EditModal";
 import OpenModalButton from "../OpenModalButton";
+import DeletePost from "../DeletePost/DeletePost";
 
 function postsByUserId(posts, userId) {
   return Object.values(posts).filter((post) => post.ownerId === userId);
@@ -48,6 +49,13 @@ const ManagePost = () => {
                     buttonText="Update"
                     className="manage-update"
                     modalComponent={<ManagePostModal post={post} />}
+                  />
+                </div>
+                <div className="manage-btn">
+                  <OpenModalButton
+                    buttonText="Delete"
+                    className="manage-delete"
+                    modalComponent={<DeletePost post={post} />}
                   />
                 </div>
               </div>
