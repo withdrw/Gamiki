@@ -23,7 +23,8 @@ class Post(db.Model):
             'ownerId': self.user_id,
             'timeCreated': self.time_created,
             # 'imageUrl': self.post_image,
-            'likes': len(self.likes)
+            'likes': len(self.likes),
+            'comments': [comment.to_dict() for comment in self.comments]
         }
 
 
