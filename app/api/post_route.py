@@ -41,8 +41,6 @@ def one_post(id):
     return {"Post":postObj}
 
 ##
-
-
 @post_routes.route('/')
 def all_posts():
     posts = [x.to_dict() for x in Post.query.all()]
@@ -101,7 +99,7 @@ def edit_post(id):
         db.session.commit()
         safe_post = post.to_dict()
         safe_post['author'] = current_user.username
-        safe_post['Comments']= [x.to_dict() for x in Comment.query.filter_by(question_id = id).all()]
+        safe_post['Comments']= [x.to_dict() for x in Comment.query.filter_by(post_id = id).all()]
         return {"Post":safe_post}
     if form.errors:
         return {"message":"Bad Request", "errors":form.errors}, 400
