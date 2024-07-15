@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle } from "react-icons/fa";
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
@@ -28,7 +28,6 @@ function ProfileButton() {
       }
     };
 
-
     document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
@@ -36,10 +35,13 @@ function ProfileButton() {
 
   const closeMenu = () => setShowMenu(false);
 
-   const handleClick = () => {
-     navigate("/manage-post");
-   };
+  const handleClick = () => {
+    navigate("/manage-post");
+  };
 
+  const handleComment = () => {
+    navigate("/manage-comment");
+  };
 
   const logout = (e) => {
     e.preventDefault();
@@ -59,6 +61,7 @@ function ProfileButton() {
               <li>{user.username}</li>
               <li>{user.email}</li>
               <li onClick={handleClick}>Manage Post</li>
+              <li onClick={handleComment}>Manage Comment</li>
               <li>
                 <button onClick={logout}>Log Out</button>
               </li>

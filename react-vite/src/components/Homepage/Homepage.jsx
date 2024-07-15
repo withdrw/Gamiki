@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostsThunk } from "../../redux/post";
+import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -15,15 +16,21 @@ const Homepage = () => {
       <div className="homepage-body">
         <div className="homepage-posts">
           {Object.values(posts).map((post) => (
-            <div key={post.id} className="homepage-single">
-              <h1 className="post-title">{post.title}</h1>
-              <p className="post-owner">{post.author}</p>
-              {post.comments.map((comment) => (
+            <NavLink
+              key={post.id}
+              to={`/posts/${post.id}`}
+              className="homepage-single"
+            >
+              <div className="post-content">
+                <h1 className="post-title">{post.title}</h1>
+                <p className="post-owner">{post.author}</p>
+                {post.comments.map((comment) => (
                   <p key={comment.id}>{comment.body}</p>
-              ))}
-              <p className="post-body">{post.body}</p>
-              <p className="post-body">{post.likes}</p>
-            </div>
+                ))}
+                <p className="post-body">{post.body}</p>
+                <p className="post-likes">Likes: {post.likes}</p>
+              </div>
+            </NavLink>
           ))}
         </div>
       </div>
@@ -31,5 +38,4 @@ const Homepage = () => {
   );
 };
 
-
-export default Homepage
+export default Homepage;

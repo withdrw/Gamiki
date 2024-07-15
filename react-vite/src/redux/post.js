@@ -2,6 +2,7 @@ const GET_POSTS = "/posts/getAll";
 const GET_ONE_POST = "/posts/getOne";
 const EDIT_POSTS = "/posts/editPost";
 const DELETE_POST = "/posts/deletePost";
+const CREATE_POST = "/posts/createPost";
 
 // GET ONE POST
 const getOnePost = (post) => ({
@@ -25,6 +26,12 @@ const editPost = (post) => ({
 const deletePost = (id) => ({
   type: DELETE_POST,
   payload: id,
+});
+
+// CREATE POST TYPE
+const createPost = (post) => ({
+  type: CREATE_POST,
+  payload: post,
 });
 
 // GET ALL POSTS THUNK
@@ -79,10 +86,30 @@ export const deletePostThunk = (postId) => async (dispatch) => {
   const response = await fetch(`/api/posts/${postId}`, {
     method: "DELETE",
   });
-  console.log("in thunk delete: ".response);
+  console.log("in thunk delete: ", response);
   if (response.ok) {
     const data = await response.json();
     dispatch(deletePost(data.postId));
+    return data;
+  } else {
+    const data = await response.json();
+    return data.errors;
+  }
+};
+
+// CREATE POST THUNK
+export const createPostThunk = (post) => async (dispatch) => {
+  const response = await fetch("/api/posts/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(post),
+  });
+  console.log("in thunk create ", response);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(createPost(data.Post));
     return data;
   } else {
     const data = await response.json();
@@ -114,15 +141,15 @@ const postReducer = (state = initialState, action) => {
         },
       };
     }
-    // case DELETE_POST: {
-    //     const newState = {...state,...state.posts}
-    //     delete newState[action.payload]
-    //     return {...newState}
-    // }
     case DELETE_POST: {
       const newState = { ...state };
       delete newState[action.payload];
       return { ...newState };
+    }
+    case CREATE_POST: {
+      let newState = { ...state };
+      newState[action.payload.id] = action.payload;
+      return newState;
     }
     default:
       return state;

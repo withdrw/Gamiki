@@ -64,7 +64,7 @@ const ManagePost = () => {
         ) : (
           <div className="manage-posts-container-none">
             <div id="manage-posts-overview">
-              <h2>Manage Posts</h2>
+              <h2> No Posts</h2>
             </div>
           </div>
         )}

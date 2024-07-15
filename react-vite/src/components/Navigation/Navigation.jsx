@@ -10,6 +10,9 @@ function Navigation() {
       </li>
 
       <li>
+        <NavLink to="/create-post">Create Post</NavLink>
+      </li>
+      <li>
         <ProfileButton />
       </li>
     </ul>
