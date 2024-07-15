@@ -149,26 +149,3 @@ def make_comment(id):
         print(form.errors)
         return {"message":"Bad Request", "errors":form.errors}, 400
 
-@post_routes.route('/<int:id>/likes', methods = ['POST'])
-# @login_required
-def save_post(id):
-    '''
-        Creates a relation to like the
-        post for the user
-    '''
-    x_post = Post.query.filter_by(id=id).first()
-    if x_post != None:
-        new_like = Like(
-            post_id = id,
-            user_id = current_user.id
-        )
-        db.session.add(new_like)
-        db.session.commit()
-        safe_like = new_like.to_dict()
-        post = x_post.to_dict()
-        author = User.query.filter_by(id = post['ownerId']).first()
-        post['author'] = author.username
-        safe_like['post'] = post
-        return {'Like':safe_like}
-    else:
-        return {'message':"Post could not be found"}, 404

@@ -5,11 +5,11 @@ from app.models import Post
 
 
 def minTitle(form, field):
-    if len(field.data) < 10:
-        raise ValidationError('Title must be at least 10 characters long')
+    if len(field.data) < 5:
+        raise ValidationError('Title must be at least 5 characters long')
 def minBody(form, field):
-    if len(field.data) < 150:
-        raise ValidationError('Body must be at least 150 characters long')
+    if len(field.data) < 50:
+        raise ValidationError('Body must be at least 50 characters long')
 
 
 
