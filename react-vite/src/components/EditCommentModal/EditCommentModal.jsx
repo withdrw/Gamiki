@@ -22,6 +22,8 @@ const EditCommentModal = ({ comment, onClose }) => {
       closeModal();
     }
     closeModal();
+
+      
   };
 
   return (

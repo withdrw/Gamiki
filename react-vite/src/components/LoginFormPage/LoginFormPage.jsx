@@ -31,6 +31,10 @@ function LoginFormPage() {
     }
   };
 
+  const handleNavigate =  () => {
+    navigate('/signup')
+  }
+
   return (
     <>
       <h1>Log In</h1>
@@ -58,6 +62,7 @@ function LoginFormPage() {
         </label>
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
+        <button onClick={handleNavigate} type="sign-up">Sign Up</button>
       </form>
     </>
   );

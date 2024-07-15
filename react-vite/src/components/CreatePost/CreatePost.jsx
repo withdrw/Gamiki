@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createPostThunk, getPostsThunk } from "../../redux/post";
 
@@ -10,6 +10,7 @@ const CreatePost = () => {
   const [submitted, setSubmitted] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) =>  state.session.user)
 
   // useEffect(() =>{
   //     const errors = {};
@@ -35,9 +36,15 @@ const CreatePost = () => {
       errors.body = "Body must be at least 150 characters long";
     }
 
+
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
       return;
+    }
+
+    if (!user) {
+      setErrors({ general: "You must be logged in to make a post" });
+      setTimeout(() => {navigate('/login')},3000)
     }
     const newPost = {
       title: title,
@@ -58,6 +65,7 @@ const CreatePost = () => {
     }
   };
 
+
   return (
     <div className="createpost-body">
       <form onSubmit={handleSubmit} className="createpost-form">
@@ -77,6 +85,7 @@ const CreatePost = () => {
             onChange={(e) => setBody(e.target.value)}
           />
           {submitted && errors.body && <p className="error">{errors.body}</p>}
+           {submitted && errors.general && <p className="error">{errors.general}</p>}
           <button type="submit"> Create Post </button>
         </div>
       </form>
