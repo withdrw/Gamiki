@@ -35,6 +35,17 @@ function LoginFormPage() {
     navigate('/signup')
   }
 
+
+  const handleDemoLogin =  async (e) => {
+    e.preventDefault()
+    const demoUser = await dispatch(thunkLogin({ email: 'demo@aa.io', password: 'password' }))
+    if (demoUser) {
+      setErrors(demoUser)
+    }
+    navigate('/')
+
+  }
+
   return (
     <>
       <h1>Log In</h1>
@@ -63,6 +74,7 @@ function LoginFormPage() {
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
         <button onClick={handleNavigate} type="sign-up">Sign Up</button>
+        <button onClick={(e) => {handleDemoLogin(e)}} type="sign-up">Login as demo user</button>
       </form>
     </>
   );
