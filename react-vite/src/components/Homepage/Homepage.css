@@ -1,0 +1,45 @@
+.homepage-body {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+.homepage-posts {
+width: 80%;
+max-width: 800px;
+border: 1px solid #ccc;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-single {
+text-decoration: none;
+color: #333;
+margin-bottom: 20px;
+}
+
+.post-content {
+padding: 10px;
+border: 1px solid #eee;
+border-radius: 4px;
+}
+
+.post-title {
+font-size: 1.5rem;
+margin-bottom: 5px;
+}
+
+.post-owner {
+font-style: italic;
+margin-bottom: 5px;
+}
+
+.post-body {
+margin-top: 10px;
+}
+
+.post-likes {
+font-weight: bold;
+}

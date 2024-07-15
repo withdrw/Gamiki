@@ -1,3 +1,35 @@
-.profile-dropdown {
-  position: absolute;
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+.navbar {
+  background-color: #d12828;
+  padding: 10px;
+}
+
+.navbar-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0 10px;
+}
+
+.navbar-item-right {
+  margin-left: auto;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+  padding-right: 15px;
+}
+
+
