@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User
+from flask_login import login_required, current_user
+from app.models import User, Comment, Post
 
 user_routes = Blueprint('users', __name__)
 
@@ -23,3 +23,19 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/comments')
+@login_required
+def get_my_comments():
+    '''
+        Get all of the current logged in
+        user's comments to posts
+    '''
+    comments = [x.to_dict() for x in Comment.query.filter_by(user_id=current_user.id).all()]
+    for comment in comments:
+        main = Post.query.filter_by(id = comment['mainPost']).first()
+        post = main.to_dict()
+        owner = User.query.filter_by(id= post['ownerId']).first()
+        post['owner'] = owner.to_dict()
+        comment['mainPost'] = post
+    return {"Comments": comments}
