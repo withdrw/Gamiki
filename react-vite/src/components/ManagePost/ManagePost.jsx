@@ -6,22 +6,29 @@ import OpenModalButton from "../OpenModalButton";
 import DeletePost from "../DeletePost/DeletePost";
 
 function postsByUserId(posts, userId) {
-  return Object.values(posts).filter((post) => post.ownerId === userId);
+  if (userId) {
+    return Object.values(posts).filter((post) => post.ownerId === userId);
+  } else {
+    return []
+  }
 }
 
 const ManagePost = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
-  const userId = useSelector((state) => state.session.user.id);
+  const userId = useSelector((state) => state.session.user?.id);
   //   const [editPostId, setEditPostId] = useState(null);
   //   const [title, setTitle] = useState("");
   //   const [body, setBody] = useState("");
+
 
   useEffect(() => {
     dispatch(getPostsThunk());
   }, []);
 
   const userPosts = postsByUserId(posts, userId);
+
+
 
   return (
     <>
