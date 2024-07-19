@@ -19,7 +19,7 @@ const ManagePost = () => {
 
   useEffect(() => {
     dispatch(getPostsThunk());
-  }, [dispatch]);
+  }, []);
 
   const userPosts = postsByUserId(posts, userId);
 
