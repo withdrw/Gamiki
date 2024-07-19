@@ -4,7 +4,7 @@ import { editPostThunk, getPostsThunk, thunkPostImage } from "../../redux/post";
 import { useModal } from "../../context/Modal";
 import "./EditModal.css";
 
-const ManagePostModal = ({ post, onClose }) => {
+const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
   const [title, setTitle] = useState(post.title);
   const [body, setBody] = useState(post.body);
   const dispatch = useDispatch();
@@ -52,9 +52,11 @@ const ManagePostModal = ({ post, onClose }) => {
       setImageLoading(false);
       closeModal();
       dispatch(getPostsThunk());
+      reload(!reloadBool)
     } else {
       closeModal();
     }
+
   };
 
   return (
@@ -62,7 +64,6 @@ const ManagePostModal = ({ post, onClose }) => {
       <div className="modal-content">
         <span className="close" onClick={onClose}></span>
         <h2>Edit Post</h2>
-        <form encType="multipart/form-data" onSubmit={handleUpdate}>
           <input
             type="text"
             value={title}
@@ -94,8 +95,7 @@ const ManagePostModal = ({ post, onClose }) => {
             />
             {imageLoading && <p>Loading...</p>}
           </div>
-          <button>Update</button>
-        </form>
+          <button onClick={handleUpdate} >Update</button>
       </div>
     </div>
   );

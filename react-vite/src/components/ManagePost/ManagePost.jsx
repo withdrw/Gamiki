@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostsThunk } from "../../redux/post";
 import ManagePostModal from "../EditModal/EditModal";
@@ -20,6 +20,7 @@ const ManagePost = () => {
   //   const [editPostId, setEditPostId] = useState(null);
   //   const [title, setTitle] = useState("");
   //   const [body, setBody] = useState("");
+  const [forceReload, setForceReload] = useState(false)
 
 
   useEffect(() => {
@@ -28,6 +29,9 @@ const ManagePost = () => {
 
   const userPosts = postsByUserId(posts, userId);
 
+  useEffect(() => {
+
+  }, [forceReload])
 
 
   return (
@@ -69,7 +73,7 @@ const ManagePost = () => {
                   <OpenModalButton
                     buttonText="Update"
                     className="manage-update"
-                    modalComponent={<ManagePostModal post={post} />}
+                    modalComponent={<ManagePostModal reloadBool={forceReload} reload={setForceReload} post={post} />}
                   />
                 </div>
                 <div className="manage-btn">
