@@ -1,0 +1,11 @@
+.modal-content {
+    width: 600px;
+    height: 600px;
+}
+.photo-image{
+    width: 300px;
+}
+.modal{
+    max-width: 700px;
+    max-height: 600px;
+}

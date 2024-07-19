@@ -11,7 +11,7 @@ function Navigation() {
             Home
           </NavLink>
         </li>
-        <li className="navbar-item navbar-item-right">
+        <li className="navbar-item">
           <NavLink to="/create-post" className="navbar-link">
             Create Post
           </NavLink>

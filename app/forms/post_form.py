@@ -2,6 +2,9 @@ from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import Post
+from app.api.aws_helper import ALLOWED_EXTENSIONS
+from flask_wtf.file import FileField, FileAllowed, FileRequired
+
 
 
 def minTitle(form, field):

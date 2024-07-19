@@ -3,6 +3,7 @@ const GET_ONE_POST = "/posts/getOne";
 const EDIT_POSTS = "/posts/editPost";
 const DELETE_POST = "/posts/deletePost";
 const CREATE_POST = "/posts/createPost";
+const ADD_IMAGE = "/posts/addImage";
 
 // GET ONE POST
 const getOnePost = (post) => ({
@@ -34,12 +35,19 @@ const createPost = (post) => ({
   payload: post,
 });
 
+const addPostImage = (postId, image) => ({
+  type: ADD_IMAGE,
+  postId,
+  image,
+});
+
 // GET ALL POSTS THUNK
 export const getPostsThunk = () => async (dispatch) => {
   const res = await fetch("/api/posts/");
   if (res.ok) {
     const { Posts } = await res.json();
     dispatch(getPost(Posts));
+    console.log("whattttttt: ", Posts);
   } else {
     const data = await res.json();
     return data.errors;
@@ -117,6 +125,26 @@ export const createPostThunk = (post) => async (dispatch) => {
   }
 };
 
+//ADD IMAGE
+export const thunkPostImage = (post, image) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append("image", image);
+  console.log("POST redux: ", post);
+  console.log("ADDING IMAGE FOR: ", post.Post.id);
+  const res = await fetch(`/api/images/${post.Post.id}`, {
+    method: "POST",
+    body: formData,
+  });
+  if (res.ok) {
+    const postImage = await res.json();
+    dispatch(addPostImage(post.id, postImage));
+    return postImage;
+  } else {
+    const error = await res.json();
+    return error;
+  }
+};
+
 //REDUCERS
 const initialState = {};
 const postReducer = (state = initialState, action) => {
@@ -151,6 +179,11 @@ const postReducer = (state = initialState, action) => {
       newState[action.payload.id] = action.payload;
       return newState;
     }
+    case ADD_IMAGE: {
+      const newState = { ...state };
+      return newState;
+    }
+
     default:
       return state;
   }

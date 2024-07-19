@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required, current_user
-from app.models import User, Comment, Post
+from app.models import User, Comment, Post , Like
 
 user_routes = Blueprint('users', __name__)
 
@@ -39,3 +39,21 @@ def get_my_comments():
         post['owner'] = owner.to_dict()
         comment['mainPost'] = post
     return {"Comments": comments}
+
+@user_routes.route('/likes')
+@login_required
+def get_user_likes():
+    '''
+        Get all of the current logged in
+        user's liked posts
+    '''
+    likes = [x.to_dict() for x in Like.query.filter_by(user_id=current_user.id).all()]
+    for x in likes:
+        x_post = Post.query.filter_by(id=x['post']).first()
+        post = x_post.to_dict()
+        author = User.query.filter_by(id = post['ownerId']).first()
+        post['author'] = author.username
+        post['Comments'] = [x.to_dict() for x in Comment.query.filter_by(post_id = post['id']).all()]
+        if x_post!= None:
+            x['post'] = post
+    return {"Liked Posts": likes}

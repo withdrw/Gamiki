@@ -4,6 +4,8 @@ import { getOnePostThunk } from "../../redux/post";
 import { useParams } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import CreateComment from "../CreateComment/CreateComment";
+import { createLikeThunk, removeLikeThunk } from "../../redux/like";
+import './PostPage.css'
 
 const PostPage = () => {
   const { postId } = useParams();
@@ -11,28 +13,93 @@ const PostPage = () => {
   const post = useSelector((state) => state.posts[postId]);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [likes, setLikes] = useState("");
+  const [likes, setLikes] = useState(0);
   const [comments, setComments] = useState([]);
+  const userId = useSelector((state) => state.session.user);
+  let userLikes = useSelector((state) => state.likes);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     dispatch(getOnePostThunk(postId));
+    // dispatch(userLikesThunk());
   }, [dispatch, postId]);
 
   useEffect(() => {
     if (post) {
       setTitle(post.title);
       setBody(post.body);
-      setLikes(post.likes);
+      setLikes(post.likes.length);
+      console.log("IMAGE: ", post.images);
       setComments(post.comments || []);
+      if (userId) {
+        setIsLiked(post.likes.some((like) => like.user === userId.id));
+      }
     }
-  }, [post]);
+  }, [post, userId]);
+
+  useEffect(() => {
+    if (userLikes && userLikes.length > 0) {
+      setIsLiked(userLikes.some((like) => like.postId === postId));
+    } else {
+      setIsLiked(false);
+    }
+  }, [userLikes, postId]);
+
+  const handleLike = async () => {
+    await dispatch(createLikeThunk(postId));
+    setIsLiked(true);
+    dispatch(getOnePostThunk(postId));
+  };
+
+  const handleUnlike = async () => {
+    try {
+      console.log("HERE: ", post.likes);
+      console.log("POST: ", postId);
+      console.log("THIS IS THE USER IDDD", userId.id);
+
+      const likeIdToRemove = post.likes.find((like) => like.user === userId.id);
+      console.log("fknvfk", likeIdToRemove.id);
+
+      if (likeIdToRemove) {
+        const dispo = await dispatch(removeLikeThunk(likeIdToRemove.id));
+        console.log("-----------------", dispo);
+        setIsLiked(false);
+        setLikes((prevLikes) => prevLikes - 1);
+      }
+    } catch (error) {
+      console.error("Error removing like:", error);
+      setIsLiked(true);
+      setLikes(likes);
+      dispatch(getOnePostThunk(postId));
+    }
+  };
 
   return (
     <div className="postpage-container">
       <div className="post-contents">
         <h1>{title}</h1>
+        <div className="route-images">
+          <h2>Images</h2>
+          {post &&
+            post.images &&
+            post.images.map((image) => (
+              <img key={image.id} src={image.imageUrl} />
+            ))}
+        </div>
         <p>{body}</p>
         <p>Likes: {likes}</p>
+        <div id="like-buttons">
+          {userId ? (
+            isLiked ? (
+              <button onClick={handleUnlike}>Unlike</button>
+            ) : (
+              <button onClick={handleLike}>Like</button>
+            )
+          ) : (
+            <button disabled>Like</button>
+          )}
+        </div>
+
         <h2>Comments</h2>
         <div className="comments-list">
           {comments.map((comment) => (

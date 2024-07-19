@@ -13,5 +13,6 @@ class Like(db.Model):
     def to_dict(self):
         return{
             'id':self.id,
-            'post':self.post_id
+            'post':self.post_id,
+            'user': self.user_id
         }

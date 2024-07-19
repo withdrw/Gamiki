@@ -1,13 +1,12 @@
-body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 .navbar {
-  background-color: #d12828;
   padding: 10px;
+  border-bottom: solid rgb(255, 255, 255) 4px;
+  color: white;
+  position: relative;
+
 }
+
 
 .navbar-items {
   display: flex;
@@ -22,14 +21,39 @@ body {
   margin: 0 10px;
 }
 
-.navbar-item-right {
-  margin-left: auto;
-}
-
 .navbar-link {
   text-decoration: none;
-  color: #333;
   padding-right: 15px;
 }
 
 
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  border: solid rgb(255, 255, 255) 2px;
+  overflow: hidden;
+  display: none;
+  list-style: none;
+
+}
+
+.profile-dropdown {
+  display: block; /* Show the dropdown when the menu is clicked */
+}
+
+.profile-dropdown:hover {
+  cursor: pointer;
+  color: rgb(0, 9, 87);
+}
+
+
+.profile-style {
+margin: 5px;
+text-align: start;
+}
+
+.profile-style:hover{
+    cursor: pointer;
+  color: rgb(0, 9, 87);
+}

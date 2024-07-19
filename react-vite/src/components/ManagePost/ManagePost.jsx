@@ -35,6 +35,20 @@ const ManagePost = () => {
               <div className="manage-post-tile" key={post.id}>
                 <div className="manage-post-info">
                   <h1>{post.title}</h1>
+
+                  {post.images && post.images.length > 0 && (
+                    <div className="post-images">
+                      {post.images.map((image) => (
+                        <img
+                          key={image.id}
+                          src={image.imageUrl}
+                          alt={`Post ${post.id} Image`}
+                          className="post-image"
+                        />
+                      ))}
+                    </div>
+                  )}
+
                   <p>{post.author}</p>
                   <p>{post.body}</p>
                   <div className="manage-tag-display">

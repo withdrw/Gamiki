@@ -5,8 +5,6 @@ from wtforms.validators import DataRequired, Email, ValidationError,Length
 from app.models import User
 
 
-
-
 def user_exists(form, field):
     # Checking if user exists
     email = field.data

@@ -1,32 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Nanum+Gothic&family=PT+Sans+Narrow:wght@400;700&display=swap');
+
 .homepage-body {
 display: flex;
 justify-content: center;
 align-items: center;
-height: 100vh;
+width: 800;
 }
 
-.homepage-posts {
+/* .homepage-posts {
 width: 80%;
 max-width: 800px;
 border: 1px solid #ccc;
 padding: 20px;
 border-radius: 8px;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .homepage-single {
 text-decoration: none;
 color: #333;
-margin-bottom: 20px;
+margin: 20px;
+
 }
 
 .post-content {
-padding: 10px;
-border: 1px solid #eee;
-border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  width: 500px;
 }
 
 .post-title {
+  border-bottom: solid white 2px;
 font-size: 1.5rem;
 margin-bottom: 5px;
 }
@@ -42,4 +47,31 @@ margin-top: 10px;
 
 .post-likes {
 font-weight: bold;
+}
+
+.post-body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.post-comment {
+white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.post-subtitle{
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: medium;
+}
+
+.post-images{
+  width: 300px;
+  height: 300px;
+}
+
+.post-image{
+  width: 300px;
+  height: 300px;
 }

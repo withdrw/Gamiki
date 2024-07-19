@@ -45,8 +45,8 @@ function LoginFormModal() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="login-class">Log In</h1>
+      <form className="login-modal" onSubmit={handleSubmit}>
         <label>
           Email
           <input
@@ -68,7 +68,7 @@ function LoginFormModal() {
         </label>
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
-        <button
+        <button className="signup-modal"
           onClick={(e) => {
             handleDemoLogin(e);
           }}

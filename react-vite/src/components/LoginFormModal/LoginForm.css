@@ -1,0 +1,42 @@
+.login-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  border-radius: 2px;
+}
+
+.login-modal label {
+  margin-bottom: 10px; /* Add space between each input label */
+}
+
+.login-modal input {
+  width: 100%; /* Make the input full width */
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.login-modal p {
+  color: red; 
+  margin-top: 5px;
+}
+
+.login-modal button {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.login-modal button:hover {
+  background-color: rgb(43, 226, 165);
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+.signup-modal{
+    margin-top: 5px;
+}
+
+.login-class{
+    display: flex;
+    justify-content: center;
+}
