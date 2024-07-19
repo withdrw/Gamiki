@@ -4,23 +4,23 @@ from datetime import datetime
 
 def seed_posts():
     post1 = Post(
-        title = "first post",
-        body = 'this is the bodyyyy',
-        user_id = 1,
-    )
-    post4 = Post(
-        title = "post for testing post",
-        body = 'this is the bodyyyy',
+        title = "GTA V",
+        body = 'Was just chilling in someones car (it was stolen and I didnt want to leave ), he told me to get out and I am glad I didnt because this was the outcome of that.',
         user_id = 1,
     )
     post2 = Post(
-        title = "second post",
-        body = 'this is the bodyyyy',
-        user_id = 2,
+        title = "CSGO",
+        body = 'Slight 4K none too big ya feel me , let me know in the comments what yall think about the clip, all heads btw .',
+        user_id = 1,
     )
     post3 = Post(
-        title = "third post",
-        body = 'this is the bodyyyy',
+        title = "Elden Ring",
+        body = 'I bought this game thinking oh this would be so easy , I promise you not even 30 mins into it I quit and uninstalled the game. NEVER TOUCHING THIS GAME AGAIN. -10/10, please if anyone wants to buy this from me let me know my email is demo@aa.io.',
+        user_id = 2,
+    )
+    post4 = Post(
+        title = "Rust",
+        body = 'Overall great game, you can meet some great people or some not so great people. Like in this image below you can see the base that I built alone and it got raided that night I was pretty upset but still a great game 8/10 ',
         user_id = 3,
     )
 
@@ -33,7 +33,7 @@ def seed_posts():
 
 def undo_posts():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.questions RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.posts RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM posts"))
 
