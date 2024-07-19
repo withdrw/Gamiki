@@ -62,40 +62,41 @@ const ManagePostModal = ({ post, onClose }) => {
       <div className="modal-content">
         <span className="close" onClick={onClose}></span>
         <h2>Edit Post</h2>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-        />
-        <textarea
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          placeholder="Body"
-        />
-
-        <div className="photo">
-          {imageUrl && (
-            <div className="photo-preview">
-              <p>Current Image:</p>
-              <img
-                className="photo-image"
-                src={imageUrl}
-                alt="Current Post Image"
-              />
-            </div>
-          )}
+        <form encType="multipart/form-data" onSubmit={handleUpdate}>
           <input
-            type="file"
-            onChange={handleFileChange}
-            id="image-upload"
-            className="upload-button"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title"
           />
-          {imageLoading && <p>Loading...</p>}
-        </div>
-      </div>
+          <textarea
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            placeholder="Body"
+          />
 
-      <button onClick={handleUpdate}>Update</button>
+          <div className="photo">
+            {imageUrl && (
+              <div className="photo-preview">
+                <p>Current Image:</p>
+                <img
+                  className="photo-image"
+                  src={imageUrl}
+                  alt="Current Post Image"
+                />
+              </div>
+            )}
+            <input
+              type="file"
+              onChange={handleFileChange}
+              id="image-upload"
+              className="upload-button"
+            />
+            {imageLoading && <p>Loading...</p>}
+          </div>
+          <button>Update</button>
+        </form>
+      </div>
     </div>
   );
 };

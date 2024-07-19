@@ -97,7 +97,7 @@ const CreatePost = () => {
 
   return (
     <div className="createpost-body">
-      <form onSubmit={handleSubmit} className="createpost-form">
+      <form encType="multipart/form-data" onSubmit={handleSubmit} className="createpost-form">
         <div className="createpost-content">
           <h1> Create a new post </h1>
           <label htmlFor="title"> Title: </label>
