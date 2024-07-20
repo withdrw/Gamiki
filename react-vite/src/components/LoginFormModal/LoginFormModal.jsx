@@ -16,6 +16,31 @@ function LoginFormModal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
+
+      const errors = {};
+      if (password.length < 5) {
+        errors.password = "Password must be at least 5 characters long";
+      }
+
+      if (
+        !email
+          .toLowerCase()
+          .match(
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/
+          )
+      ) {
+        errors.email = "Email must be in a valid format";
+      }
+
+      if (Object.keys(errors).length > 0) {
+        setErrors(errors);
+        return;
+      }
+
+
+
+
     const serverResponse = await dispatch(
       thunkLogin({
         email,

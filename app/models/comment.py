@@ -10,6 +10,9 @@ class Comment(db.Model):
     is_primary = db.Column(db.Boolean, nullable=False)
     time_created = db.Column(db.DateTime(timezone=True), server_default=db.func.now())
 
+
+    user = db.relationship('User', back_populates='comments')
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -18,4 +21,5 @@ class Comment(db.Model):
             'mainPost': self.post_id,
             'ownerId': self.user_id,
             'timeCreated': self.time_created,
+            'author': self.user.username,
         }

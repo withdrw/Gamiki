@@ -77,7 +77,7 @@ const PostPage = () => {
   return (
     <div className="postpage-container">
       <div className="post-contents">
-        <h1 className="page-title" >{title}</h1>
+        <h1 className="page-title">{title}</h1>
         <div className="route-images">
           {post &&
             post.images &&
@@ -90,12 +90,18 @@ const PostPage = () => {
         <div id="like-buttons">
           {userId ? (
             isLiked ? (
-              <button className="likeBtn" onClick={handleUnlike}>Unlike</button>
+              <button className="likeBtn" onClick={handleUnlike}>
+                Unlike
+              </button>
             ) : (
-              <button className="likeBtn"  onClick={handleLike}>Like</button>
+              <button className="likeBtn" onClick={handleLike}>
+                Like
+              </button>
             )
           ) : (
-            <button className="disabledBtn"  disabled>Like</button>
+            <button className="disabledBtn" disabled>
+              Like
+            </button>
           )}
         </div>
 
@@ -104,16 +110,21 @@ const PostPage = () => {
           {comments.map((comment) => (
             <div key={comment.id} className="comment-page">
               <p className="page-comment">{comment.body}</p>
+              <p className="page-owner">{comment.author}</p>
             </div>
           ))}
         </div>
       </div>
       <div className="manage-btn">
-        <OpenModalButton
-          buttonText="Comment"
-          className="manage-delete"
-          modalComponent={<CreateComment />}
-        />
+        {userId ? (
+          <OpenModalButton
+            buttonText="Comment"
+            className="manage-delete"
+            modalComponent={<CreateComment />}
+          />
+        ) : (
+          <button disabled>Comment </button>
+        )}
       </div>
     </div>
   );

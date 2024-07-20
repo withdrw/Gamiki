@@ -19,6 +19,8 @@ const CreatePost = () => {
   const [image, setImage] = useState(null);
   const [imageUrl] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
+  const [titleRemaining, setTitleRemaining] = useState(30)
+  const [bodyTyped , setBodyTyped] = useState(0)
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -43,22 +45,21 @@ const CreatePost = () => {
     e.preventDefault();
     setSubmitted(true);
 
-    const errors = {};
-    if (title.length < 5) {
-      errors.title = "Title must be at least 5 characters long";
-    }
-    if (body.length < 50) {
-      errors.body = "Body must be at least 50 characters long";
-    }
-    if (!image) {
-      errors.image = "Upload an image";
-    }
+  const errors = {};
+  if (title.length < 5 || title.length > 30) {
+    errors.title = "Title must be 5 to 30 characters long";
+  }
+  if (body.length < 150 || body.length >= 2048) {
+    errors.body = "Description must be between 150 and 2048 characters long";
+  }
+  if (!image) {
+    errors.image = "You must upload an image to create a post";
+  }
 
-    if (Object.keys(errors).length > 0) {
-      setErrors(errors);
-      return;
-    }
-
+  if (Object.keys(errors).length > 0) {
+    setErrors(errors);
+    return;
+  }
     if (!user) {
       setErrors({ general: "You must be logged in to make a post" });
       setTimeout(() => {
@@ -96,25 +97,46 @@ const CreatePost = () => {
     }
   };
 
+
+  const handleTitleChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 30) {
+      setTitle(value);
+      setTitleRemaining(30 - value.length);
+    }
+  };
+
+  const handleBodyChange = (e) => {
+    const value = e.target.value;
+    setBody(value);
+    setBodyTyped(value.length);
+  };
+
+
   return (
     <div className="createpost-body">
-      <form encType="multipart/form-data" onSubmit={handleSubmit} className="createpost-form">
+      <form
+        encType="multipart/form-data"
+        onSubmit={handleSubmit}
+        className="createpost-form"
+      >
         <div className="createpost-content">
           <h1> Create a new post </h1>
           <label htmlFor="title"> Title: </label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+          <input type="text" value={title} onChange={handleTitleChange} />
+          <p className="char-counter">{titleRemaining} characters remaining</p>
           {submitted && errors.title && <p className="error">{errors.title}</p>}
           <label htmlFor="body"> Body: </label>
           <textarea
+            maxLength={2048}
             className="create-post-body"
             value={body}
-            onChange={(e) => setBody(e.target.value)} rows={10} cols={10}
-            />
-            {submitted && errors.body && <p className="error">{errors.body}</p>}
+            onChange={handleBodyChange}
+            rows={10}
+            cols={10}
+          />
+          <p className="char-counter">{bodyTyped} characters count</p>
+          {submitted && errors.body && <p className="error">{errors.body}</p>}
           <div className="form-group">
             <div className="photo">
               <input
@@ -122,8 +144,10 @@ const CreatePost = () => {
                 onChange={handleFileChange}
                 id="image-upload"
                 className="upload-button"
-                />
-                {submitted && errors.image && <p className="error">{errors.image}</p>}
+              />
+              {submitted && errors.image && (
+                <p className="error">{errors.image}</p>
+              )}
               {imageUrl && (
                 <p>
                   Image URL:{" "}
@@ -138,7 +162,10 @@ const CreatePost = () => {
           {submitted && errors.general && (
             <p className="error">{errors.general}</p>
           )}
-          <button className="create-btn" type="submit"> Create Post </button>
+          <button className="create-btn" type="submit">
+            {" "}
+            Create Post{" "}
+          </button>
         </div>
       </form>
     </div>

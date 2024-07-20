@@ -12,7 +12,7 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
   const [image, setImage] = useState(null);
   const [imageUrl] = useState(post.images?.[0]?.imageUrl || "");
   const [imageLoading, setImageLoading] = useState(false);
-  const [setErrors] = useState('')
+  const [errors,setErrors] = useState('')
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -36,6 +36,22 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
   };
 
   const handleUpdate = async () => {
+    const errors = {};
+    if (title.length < 5 || title.length > 30) {
+      errors.title = "Title must be 5 to 30 characters long";
+    }
+    if (body.length < 150 || body.length >= 2048) {
+      errors.body = "Description must be between 150 and 2048 characters long";
+    }
+    if (!image && !imageUrl) {
+      errors.image = "You must upload an image to create a post";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
+    }
+
     const updatedPost = { title: title, body: body };
     console.log("updated post: ", updatedPost);
     // console.log("post id: ")
@@ -64,38 +80,39 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
       <div className="modal-content">
         <span className="close" onClick={onClose}></span>
         <h2>Edit Post</h2>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title"
+        />
+        {errors.title && <p className="error">{errors.title}</p>}
+        <textarea
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          placeholder="Body"
+        />
+        {errors.body && <p className="error">{errors.body}</p>}
+        <div className="photo">
+          {imageUrl && (
+            <div className="photo-preview">
+              <p>Current Image:</p>
+              <img
+                className="photo-image"
+                src={imageUrl}
+                alt="Current Post Image"
+              />
+            </div>
+          )}
           <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Title"
+            type="file"
+            onChange={handleFileChange}
+            id="image-upload"
+            className="upload-button"
           />
-          <textarea
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            placeholder="Body"
-          />
-
-          <div className="photo">
-            {imageUrl && (
-              <div className="photo-preview">
-                <p>Current Image:</p>
-                <img
-                  className="photo-image"
-                  src={imageUrl}
-                  alt="Current Post Image"
-                />
-              </div>
-            )}
-            <input
-              type="file"
-              onChange={handleFileChange}
-              id="image-upload"
-              className="upload-button"
-            />
-            {imageLoading && <p>Loading...</p>}
-          </div>
-          <button onClick={handleUpdate} >Update</button>
+          {imageLoading && <p>Loading...</p>}
+        </div>
+        <button onClick={handleUpdate}>Update</button>
       </div>
     </div>
   );

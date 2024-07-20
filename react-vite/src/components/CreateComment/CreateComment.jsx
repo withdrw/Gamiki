@@ -1,35 +1,28 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createCommentThunk } from "../../redux/comment";
 import { getPostsThunk } from "../../redux/post";
-import { useNavigate, useParams } from "react-router-dom";
-import './CreateComment.css'
-
+import {  useParams } from "react-router-dom";
 
 const CreateComment = () => {
     const { postId } = useParams();
     const [body, setBody] = useState('');
     const dispatch = useDispatch();
     const { closeModal } = useModal();
-    const [error, setError] = useState('');
-    const user = useSelector((state) => state.session.user);
-    const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
+    const [bodyTyped, setBodyTyped] = useState(0);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(body.length < 15) {
-            setError("Comment must be at least 15 characters long");
-            return;
+        const validationErrors = {};
+        if (body.length < 15 || body.length >= 450) {
+            validationErrors.body = "Description must be between 15 and 450 characters long";
         }
 
-        if (!user) {
-            setError("You must be logged in to post a comment.");
-            setTimeout(() => {
-                navigate('/login');
-                closeModal()
-            }, 3000);
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
             return;
         }
 
@@ -38,39 +31,39 @@ const CreateComment = () => {
         };
 
         const response = await dispatch(createCommentThunk(postId, newComment));
-        console.log(response)
+        console.log(response);
         if (!response.errors) {
             await dispatch(getPostsThunk());
             closeModal();
-
         } else {
             console.error("Failed to create comment:", response.errors);
-            setError("Failed to create comment. Please try again.");
+            setErrors({ general: "Failed to create comment. Please try again." });
         }
-    }
+    };
+
+    const handleBodyChange = (e) => {
+        const value = e.target.value;
+        setBody(value);
+        setBodyTyped(value.length);
+    };
 
     return (
         <div className="create-comment-modal">
-            <div className="commentmodal-content">
+            <div className="modal-content">
                 <span className="close" onClick={closeModal}></span>
-                <h2 className="comment-title" > Write your comment here: </h2>
+                <h2> Write your comment here: </h2>
                 <textarea
-                    rows={10}
-                    cols={40}
-                    className="comment-msg"
-                value={body}
-                onChange={(e) => setBody(e.target.value)}
-                placeholder="Body"
+                    value={body}
+                    onChange={handleBodyChange}
+                    placeholder="Body"
                 />
-                {error && <p className="error-message">{error}</p>}
+                <p className="char-counter">{bodyTyped} characters count</p>
             </div>
-            <div className="submit-Comment">
-
-            <button className="comment-submit" onClick={handleSubmit}> Submit </button>
-            </div>
-    </div>
-    )
-
-}
+            {errors.body && <p className="error-message">{errors.body}</p>}
+            {errors.general && <p className="error-message">{errors.general}</p>}
+            <button onClick={handleSubmit}> Submit </button>
+        </div>
+    );
+};
 
 export default CreateComment;
