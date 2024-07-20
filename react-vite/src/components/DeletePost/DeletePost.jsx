@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { getPostsThunk, deletePostThunk } from "../../redux/post";
 import { useModal } from "../../context/Modal";
+import './DeletePost.css'
 
 const DeletePost = ({ post }) => {
   const dispatch = useDispatch();
@@ -18,11 +19,14 @@ const DeletePost = ({ post }) => {
   };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="deletePost-modal">
+      <div className="delete-content">
         <h1>Are you sure you want to delete this post? </h1>
-        <button onClick={handleUpdate}>Yes</button>
-        <button onClick={closeModal}>No</button>
+        <div className="delete-Btns">
+          <button className="delete-yes" onClick={handleUpdate}>Yes</button>
+          <span className="btn-space"></span>
+        <button className="delete-no"  onClick={closeModal}>No</button>
+        </div>
       </div>
     </div>
   );

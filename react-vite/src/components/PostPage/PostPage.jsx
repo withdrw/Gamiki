@@ -90,19 +90,19 @@ const PostPage = () => {
         <div id="like-buttons">
           {userId ? (
             isLiked ? (
-              <button onClick={handleUnlike}>Unlike</button>
+              <button className="likeBtn" onClick={handleUnlike}>Unlike</button>
             ) : (
-              <button onClick={handleLike}>Like</button>
+              <button className="likeBtn"  onClick={handleLike}>Like</button>
             )
           ) : (
-            <button disabled>Like</button>
+            <button className="disabledBtn"  disabled>Like</button>
           )}
         </div>
 
         <h2>Comments</h2>
         <div className="comments-list">
           {comments.map((comment) => (
-            <div key={comment.id} className="comment">
+            <div key={comment.id} className="comment-page">
               <p className="page-comment">{comment.body}</p>
             </div>
           ))}

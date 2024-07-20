@@ -1,0 +1,80 @@
+.manage-posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#manage-posts-overview h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.manage-display-posts-container {
+    width: 600px;
+}
+
+.manage-post-tile {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.manage-post-info {
+    margin-bottom: 15px;
+}
+
+.post-images {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+
+}
+
+.post-image {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.manage-tag-display {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.manage-button {
+    margin-top: 10px;
+}
+
+.manage-update,
+.manage-delete {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.manage-update:hover,
+.manage-delete:hover {
+    background-color: #0056b3;
+}
+
+.manage-tag-display{
+    word-break: break-all;
+}
+
+.managePost-title{
+    word-break: break-all;
+}
+.managePost-body{
+    word-break: break-all;
+}

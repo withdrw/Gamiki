@@ -65,3 +65,16 @@
     color: #01060c;
     background-color: white;
 }
+
+#charCount {
+  font-size: small;
+  color: red;
+}
+#charBody {
+  color: red;
+  font-size: small;
+}
+
+.createpost-body{
+  resize: none;
+}

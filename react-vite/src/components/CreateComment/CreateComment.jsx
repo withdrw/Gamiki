@@ -4,6 +4,7 @@ import { useModal } from "../../context/Modal";
 import { createCommentThunk } from "../../redux/comment";
 import { getPostsThunk } from "../../redux/post";
 import { useNavigate, useParams } from "react-router-dom";
+import './CreateComment.css'
 
 
 const CreateComment = () => {
@@ -50,19 +51,23 @@ const CreateComment = () => {
 
     return (
         <div className="create-comment-modal">
-
-            <div className="modal-content">
+            <div className="commentmodal-content">
                 <span className="close" onClick={closeModal}></span>
-                <h2> Write your comment here: </h2>
+                <h2 className="comment-title" > Write your comment here: </h2>
                 <textarea
+                    rows={10}
+                    cols={40}
+                    className="comment-msg"
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
                 placeholder="Body"
                 />
                 {error && <p className="error-message">{error}</p>}
             </div>
-            <button onClick={handleSubmit}> Submit </button>
+            <div className="submit-Comment">
 
+            <button className="comment-submit" onClick={handleSubmit}> Submit </button>
+            </div>
     </div>
     )
 

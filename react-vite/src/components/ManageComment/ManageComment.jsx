@@ -4,6 +4,7 @@ import { myComments } from "../../redux/comment";
 import OpenModalButton from "../OpenModalButton";
 import EditCommentModal from "../EditCommentModal/EditCommentModal";
 import DeleteComment from "../DeleteComment/DeleteComment";
+import './ManageComment.css'
 
 const ManageComment = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,15 @@ const ManageComment = () => {
         <div className="comments-list">
           {Object.values(comments).map((comment) => (
             <div className="comment" key={comment.id}>
-              <p>Post Name: {comment.mainPost.body}</p>
-              <p>Comment: {comment.body}</p>
+              <p className="comment-mainPost">Post Name: {comment.mainPost.title}</p>
+              <p className="comment-body" >Comment: {comment.body}</p>
               <div className="manage-btn">
                 <OpenModalButton
                   buttonText="Update"
                   className="manage-update"
                   modalComponent={<EditCommentModal comment={comment} />}
                 />
+                <span className="btn-space"></span>
                 <OpenModalButton
                   buttonText="Delete"
                   className="manage-delete"

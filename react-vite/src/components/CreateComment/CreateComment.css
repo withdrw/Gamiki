@@ -12,3 +12,39 @@
   font-weight: 700;
   font-style: normal;
 } */
+
+.commentmodal-content {
+    padding: 20px;
+    width: 500px;
+}
+
+.comment-title{
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.comment-submit {
+  border-radius: 5px;
+  color: beige;
+  padding: 5px
+}
+.submit-Comment{
+  padding-left: 20px;
+}
+
+.comment-msg{
+  resize: none;
+   transition: background-color 0.2s ease-in-out;
+}
+
+.comment-submit:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.comment-msg:hover {
+     border-color: #eeeeee;
+    box-shadow: 0 0 20px rgba(23, 243, 3, 0.5);
+}

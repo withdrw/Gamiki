@@ -4,6 +4,7 @@ import { getPostsThunk } from "../../redux/post";
 import ManagePostModal from "../EditModal/EditModal";
 import OpenModalButton from "../OpenModalButton";
 import DeletePost from "../DeletePost/DeletePost";
+import './ManagePost.css'
 
 function postsByUserId(posts, userId) {
   if (userId) {
@@ -45,8 +46,7 @@ const ManagePost = () => {
             {userPosts.map((post) => (
               <div className="manage-post-tile" key={post.id}>
                 <div className="manage-post-info">
-                  <h1>{post.title}</h1>
-
+                  <h1 className="managePost-title" >{post.title}</h1>
                   {post.images && post.images.length > 0 && (
                     <div className="post-images">
                       {post.images.map((image) => (
@@ -61,7 +61,7 @@ const ManagePost = () => {
                   )}
 
                   <p>{post.author}</p>
-                  <p>{post.body}</p>
+                  <p className="managePost-body" >{post.body}</p>
                   <div className="manage-tag-display">
                     {post.comments.map((comment) => (
                       <p key={comment.id}>{comment.body}</p>
@@ -69,14 +69,14 @@ const ManagePost = () => {
                   </div>
                   <p>Date: {new Date(post.timeCreated).toLocaleDateString()}</p>
                 </div>
-                <div className="manage-btn">
+                <div className="manage-button">
                   <OpenModalButton
                     buttonText="Update"
                     className="manage-update"
                     modalComponent={<ManagePostModal reloadBool={forceReload} reload={setForceReload} post={post} />}
                   />
                 </div>
-                <div className="manage-btn">
+                <div className="manage-button">
                   <OpenModalButton
                     buttonText="Delete"
                     className="manage-delete"
