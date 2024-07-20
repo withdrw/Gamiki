@@ -115,6 +115,7 @@ const CreatePost = () => {
           />
           <div className="form-group">
             <div className="photo">
+              {submitted && errors.image && <p className="error">{errors.image}</p>}
               <input
                 type="file"
                 onChange={handleFileChange}

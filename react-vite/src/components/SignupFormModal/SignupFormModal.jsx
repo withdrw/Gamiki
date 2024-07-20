@@ -16,11 +16,31 @@ function SignupFormModal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const errors = {};
+    if (password.length < 5) {
+      errors.password = "Password must be at least 5 characters long";
+    }
+    if (username.length < 5) {
+      errors.username =
+        "Username field must be between 5 to 15 characters long";
+    }
     if (password !== confirmPassword) {
-      return setErrors({
-        confirmPassword:
-          "Confirm Password field must be the same as the Password field",
-      });
+      errors.confirmPassword =
+        "Confirm Password field must be the same as the Password field";
+    }
+    if (
+      !email
+        .toLowerCase()
+        .match(
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/
+        )
+    ) {
+      errors.email = "Email must be in a valid format";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
     }
 
     const serverResponse = await dispatch(
