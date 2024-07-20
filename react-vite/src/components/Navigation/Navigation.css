@@ -57,3 +57,7 @@ text-align: start;
     cursor: pointer;
   color: rgb(0, 9, 87);
 }
+
+.nav-circle{
+  border-radius: 4px;
+}

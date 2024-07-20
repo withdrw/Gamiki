@@ -77,16 +77,15 @@ const PostPage = () => {
   return (
     <div className="postpage-container">
       <div className="post-contents">
-        <h1>{title}</h1>
+        <h1 className="page-title" >{title}</h1>
         <div className="route-images">
-          <h2>Images</h2>
           {post &&
             post.images &&
             post.images.map((image) => (
-              <img key={image.id} src={image.imageUrl} />
+              <img className="page-image" key={image.id} src={image.imageUrl} />
             ))}
         </div>
-        <p>{body}</p>
+        <p className="page-body">{body}</p>
         <p>Likes: {likes}</p>
         <div id="like-buttons">
           {userId ? (
@@ -104,7 +103,7 @@ const PostPage = () => {
         <div className="comments-list">
           {comments.map((comment) => (
             <div key={comment.id} className="comment">
-              <p>{comment.body}</p>
+              <p className="page-comment">{comment.body}</p>
             </div>
           ))}
         </div>

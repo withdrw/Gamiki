@@ -6,6 +6,7 @@ import {
   getPostsThunk,
   thunkPostImage,
 } from "../../redux/post";
+import './CreatePost.css'
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -111,17 +112,18 @@ const CreatePost = () => {
           <textarea
             className="create-post-body"
             value={body}
-            onChange={(e) => setBody(e.target.value)}
-          />
+            onChange={(e) => setBody(e.target.value)} rows={10} cols={10}
+            />
+            {submitted && errors.body && <p className="error">{errors.body}</p>}
           <div className="form-group">
             <div className="photo">
-              {submitted && errors.image && <p className="error">{errors.image}</p>}
               <input
                 type="file"
                 onChange={handleFileChange}
                 id="image-upload"
                 className="upload-button"
-              />
+                />
+                {submitted && errors.image && <p className="error">{errors.image}</p>}
               {imageUrl && (
                 <p>
                   Image URL:{" "}
@@ -133,11 +135,10 @@ const CreatePost = () => {
               {imageLoading && <p>Loading...</p>}
             </div>
           </div>
-          {submitted && errors.body && <p className="error">{errors.body}</p>}
           {submitted && errors.general && (
             <p className="error">{errors.general}</p>
           )}
-          <button type="submit"> Create Post </button>
+          <button className="create-btn" type="submit"> Create Post </button>
         </div>
       </form>
     </div>

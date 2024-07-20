@@ -15,7 +15,7 @@ function Navigation() {
           <NavLink to="/create-post" className="navbar-link">
             Create Post
           </NavLink>
-          <ProfileButton />
+          <ProfileButton  />
         </li>
       </ul>
     </div>
