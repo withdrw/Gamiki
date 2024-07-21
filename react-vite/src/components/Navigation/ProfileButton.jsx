@@ -6,6 +6,7 @@ import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useNavigate } from "react-router-dom";
+import './Navigation.css'
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ function ProfileButton() {
               <li onClick={handleClick}>Manage Post</li>
               <li onClick={handleComment}>Manage Comment</li>
               <li>
-                <button onClick={logout}>Log Out</button>
+                <button  className="dropdown-btn"  onClick={logout}>Log Out</button>
               </li>
             </>
           ) : (

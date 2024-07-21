@@ -31,28 +31,28 @@ function LoginFormPage() {
     }
   };
 
-  const handleNavigate =  () => {
-    navigate('/signup')
-  }
+  // const handleNavigate =  () => {
+  //   navigate('/signup')
+  // }
 
 
-  const handleDemoLogin =  async (e) => {
-    e.preventDefault()
-    const demoUser = await dispatch(thunkLogin({ email: 'demo@aa.io', password: 'password' }))
-    if (demoUser) {
-      setErrors(demoUser)
-    }
-    navigate('/')
+  // const handleDemoLogin =  async (e) => {
+  //   e.preventDefault()
+  //   const demoUser = await dispatch(thunkLogin({ email: 'demo@aa.io', password: 'password' }))
+  //   if (demoUser) {
+  //     setErrors(demoUser)
+  //   }
+  //   navigate('/')
 
-  }
+  // }
 
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="login-page">
+      <h1 className="loginPage-header">Log In</h1>
       {errors.length > 0 &&
         errors.map((message) => <p key={message}>{message}</p>)}
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className="login-label">
           Email
           <input
             type="text"
@@ -61,8 +61,10 @@ function LoginFormPage() {
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
+        <div className="loginPage-errs">
+          {errors.email && <p>{errors.email}</p>}
+        </div>
+        <label className="login-label">
           Password
           <input
             type="password"
@@ -71,12 +73,16 @@ function LoginFormPage() {
             required
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
-        <button onClick={handleNavigate} type="sign-up">Sign Up</button>
-        <button onClick={(e) => {handleDemoLogin(e)}} type="sign-up">Login as demo user</button>
+        <div className="loginPage-errs">
+          {errors.password && <p>{errors.password}</p>}
+        </div>
+        <div className="loginPage-btns">
+          <button className="loginpg-btn" type="submit">
+            Log In
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

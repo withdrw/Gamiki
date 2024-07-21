@@ -1,0 +1,44 @@
+.login-page{
+    height: 950px;
+}
+
+.loginPage-header{
+    color: white;
+    text-align: center;
+}
+
+.loginPage-btns{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.loginpg-btn{
+  padding: 10px;
+  background-color: rgb(114, 114, 204);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginpg-btn:hover{
+    background-color: white;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.login-label{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    color: white;
+    gap: 5px;
+}
+
+.loginPage-errs{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    color: rgb(239, 3, 3);
+    letter-spacing: 1.5px;
+}

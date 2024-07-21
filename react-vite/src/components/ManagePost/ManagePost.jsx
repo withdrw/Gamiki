@@ -46,7 +46,7 @@ const ManagePost = () => {
             {userPosts.map((post) => (
               <div className="manage-post-tile" key={post.id}>
                 <div className="manage-post-info">
-                  <h1 className="managePost-title" >{post.title}</h1>
+                  <h1 className="managePost-title">{post.title}</h1>
                   {post.images && post.images.length > 0 && (
                     <div className="post-images">
                       {post.images.map((image) => (
@@ -61,30 +61,33 @@ const ManagePost = () => {
                   )}
 
                   <p>{post.author}</p>
-                  <p className="managePost-body" >{post.body}</p>
-                  <div className="manage-tag-display">
+                  <p className="managePost-body">{post.body}</p>
+                  {/* <div className="manage-tag-display">
                     {post.comments.map((comment) => (
                       <p key={comment.id}>{comment.body}</p>
                     ))}
-                  </div>
+                  </div> */}
                   <p>Date: {new Date(post.timeCreated).toLocaleDateString()}</p>
                 </div>
-                <div className="managePost-button">
-                  <div className="upd-delBtn">
+                <div className="manage-button">
                   <OpenModalButton
                     buttonText="Update"
-                    className="managePost-update"
-                    modalComponent={<ManagePostModal reloadBool={forceReload} reload={setForceReload} post={post} />}
-                    />
+                    className="manage-update"
+                    modalComponent={
+                      <ManagePostModal
+                        reloadBool={forceReload}
+                        reload={setForceReload}
+                        post={post}
+                      />
+                    }
+                  />
                 </div>
-                <span className="btnSpace" ></span>
-                <div className="managePost-button">
+                <div className="manage-button">
                   <OpenModalButton
                     buttonText="Delete"
-                    className="managePost-delete"
+                    className="manage-delete"
                     modalComponent={<DeletePost post={post} />}
-                    />
-                    </div>
+                  />
                 </div>
               </div>
             ))}

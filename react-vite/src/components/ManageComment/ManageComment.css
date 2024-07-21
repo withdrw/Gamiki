@@ -23,12 +23,14 @@
 
 .comments-list{
     word-break: break-all;
+    padding-bottom: 15px;
 }
 
 
 .manage-update,
 .manage-delete {
     margin-left: 10px;
+    background-color:rgb(114, 114, 204); /*added this*/
 }
 
 .btn-space {
@@ -44,6 +46,7 @@
 .comment-body{
   font-family: "Chakra Petch", sans-serif;
   margin-top: px;
+  color: white;
 
 }
 
@@ -59,8 +62,14 @@
     width: 1500px;
     padding-left: 40px;
     padding-top: 30px;
+    max-height: fit-content;
+    height: fit-content;
 }
 
 .comment-mainPost{
     padding-bottom: 10px;
+}
+
+.manage-comments-container h2 {
+    color: white;
 }

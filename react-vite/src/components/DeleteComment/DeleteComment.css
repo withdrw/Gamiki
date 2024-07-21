@@ -1,46 +1,48 @@
-.deletePost-modal{
-    width: 500px;
+.deleteComment-modal{
+    width: 550px;
     height: 150px;
     background-color: rgb(132, 156, 183); /*added this*/
     color: white;   /*added this*/
     border-radius: 15px;    /*added this*/
 }
 
-.delete-content{
+.deleteComment-content{
     padding-left: 10px;
-
+    font-size: 15px;
+    text-align: center;
 }
 
-.delete-Btns{
+.deleteComment-yes{
+    width: 100px;
+    height: 50px;
+    padding: 0 10px 0 10px;
+    background-color: rgb(114, 114, 204);   /*added this*/
+    border-radius: 15px;    /*added this*/
+    font-size: 18px /*added this*/
+}
+
+.deleteComment-no{
+    width: 100px;
+    height: 50px;
+    padding: 0 10px 0 10px;
+    background-color: rgb(114, 114, 204);   /*added this*/
+    border-radius: 15px;    /*added this*/
+    font-size: 18px /*added this*/
+}
+
+.deleteComment-yes:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+.deleteComment-no:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.deleteComment-btns{
     display: flex;
     justify-content: center;
     margin-top: 40px;
-}
-
-.delete-yes{
-    width: 100px;
-    height: 50px;
-    padding: 0 10px 0 10px;
-    background-color: rgb(114, 114, 204);   /*added this*/
-    border-radius: 15px;    /*added this*/
-    font-size: 18px /*added this*/
-}
-.delete-no{
-    width: 100px;
-    height: 50px;
-    padding: 0 10px 0 10px;
-    background-color: rgb(114, 114, 204);   /*added this*/
-    border-radius: 15px;    /*added this*/
-    font-size: 18px /*added this*/
-}
-
-.delete-yes:hover{
-    color: black;
-    background-color: white;
-    cursor: pointer;
-}
-.delete-no:hover{
-    color: black;
-    background-color: white;
-    cursor: pointer;
 }

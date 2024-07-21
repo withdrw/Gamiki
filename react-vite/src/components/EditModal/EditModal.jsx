@@ -76,33 +76,39 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
   };
 
   return (
-    <div className="editModal">
-      <div className="editModal-content">
-        <span className="closeModal" onClick={onClose}></span>
-        <h2 className="edit-Main" >Edit Post</h2>
-        <input
-          className="editTitle"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-        />
-        {errors.title && <p className="editError">{errors.title}</p>}
-        <textarea
-          rows={5}
-          cols={20}
-          className="editBodyModal"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          placeholder="Body"
-        />
-        {errors.body && <p className="editError">{errors.body}</p>}
+    <div className="editPost-modal">
+      <div className="editPost-content">
+        <span className="close" onClick={onClose}></span>
+        <div className="editPost-header">
+          <h2>Edit Post</h2>
+        </div>
+        <label>
+          {" "}
+          Title:
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title"
+          />
+        </label>
+        {errors.title && <p className="error">{errors.title}</p>}
+        <label>
+          {" "}
+          Description:
+          <textarea
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            placeholder="Body"
+          />
+        </label>
+        {errors.body && <p className="error">{errors.body}</p>}
         <div className="photo">
           {imageUrl && (
-            <div className="editPhoto-preview">
+            <div className="photo-preview">
               <p>Current Image:</p>
               <img
-                className="editPhoto-image"
+                className="photo-image"
                 src={imageUrl}
                 alt="Current Post Image"
               />
@@ -116,7 +122,11 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
           />
           {imageLoading && <p>Loading...</p>}
         </div>
-        <button className="updateBtn" onClick={handleUpdate}>Update</button>
+        <div className="edit-Modal-btn">
+          <button className="edit-modal-update" onClick={handleUpdate}>
+            Update
+          </button>
+        </div>
       </div>
     </div>
   );

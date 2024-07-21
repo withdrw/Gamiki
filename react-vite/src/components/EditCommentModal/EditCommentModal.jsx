@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editCommentThunk } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
+import './EditCommentModal.css'
 
 const EditCommentModal = ({ comment, onClose }) => {
   const [body, setBody] = useState(comment.body);
@@ -45,19 +46,26 @@ const EditCommentModal = ({ comment, onClose }) => {
     };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="editComment-modal">
+      <div className="editComment-content">
         <span className="close" onClick={onClose}></span>
         <h2>Edit Comment</h2>
-        <textarea
-          value={body}
-          // onChange={(e) => setBody(e.target.value)}
-          onChange={handleBodyChange}
-          placeholder="Body"
-        />{" "}
+        <label className="editComment-lbl">
+          Comment:
+          <textarea
+            value={body}
+            // onChange={(e) => setBody(e.target.value)}
+            onChange={handleBodyChange}
+            placeholder="Body"
+          />
+        </label>
         <p className="char-counter">{bodyTyped} characters count</p>
         {errors.body && <p>{errors.body}</p>}
-        <button onClick={handleUpdate}>Update</button>
+        <div className="editComment-btn">
+          <button className="editComment-update" onClick={handleUpdate}>
+            Update
+          </button>
+        </div>
       </div>
     </div>
   );

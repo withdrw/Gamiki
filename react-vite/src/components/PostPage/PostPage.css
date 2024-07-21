@@ -6,10 +6,16 @@
   margin: 0 auto;
   padding: 20px;
   margin-top: 40px;
+  height: fit-content;
+
 }
 
 .post-contents {
   margin: 20px;
+}
+
+.post-contents h1 {
+  color: white;
 }
 
 .route-images {
@@ -63,12 +69,11 @@
   padding: 5px 10px;
   font-size: 16px;
   border: none;
-  background-color: #000000;
+  background-color: rgb(114, 114, 204);
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
 }
-
 
 
 .manage-btn button:hover {
@@ -81,14 +86,25 @@
 }
 .page-body{
     word-break: break-all;
+    color: white;
+}
+.page-likes{
+  padding-top: 5px;
+
 }
 .page-comment{
     word-break: break-all;
+    color: white;
 }
 .likeBtn{
   padding: 4px 20px 4px 20px;
-  background-color: #000000;
+  background-color: rgb(114, 114, 204);
+  color: white;
   border-radius: 7px;
+}
+
+.post-contents h2{
+  color: white;
 }
 
 
@@ -99,8 +115,10 @@
 }
 
 .disabledBtn{
-  cursor: none;
-  background-color: black;
+  cursor: not-allowed;
+  border: 2px solid white;
+  color: black;
+  padding: 5px 10px 5px 10px;
 }
 
 .page-owner{

@@ -3,7 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 600px;
+  width: 500px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: rgba(132, 156, 183, 0.771);
+  height: 350px;
 }
 
 .signup-form label {
@@ -21,21 +25,27 @@
 }
 
 .signup-form p {
-  color: red; /* Style error messages */
+  color: rgb(24, 27, 204);  /* Style error messages */
   margin-top: 5px;
+  letter-spacing: 1.5px;
 }
 
 .signup-form button {
   margin-top: 10px; /* Add space above the button */
   border-radius: 15px;
+  background-color: rgb(114, 114, 204);
+  padding: 0px 5px 0px 5px;
 }
 .signup-form button:hover{
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    background-color: black;
+  background-color: white;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
 }
 
 .sign-up{
     padding-left: 5px;
     padding-top: 10px;
+    background-color: rgba(132, 156, 183, 0.771);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }

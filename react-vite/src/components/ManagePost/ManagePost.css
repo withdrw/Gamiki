@@ -6,12 +6,15 @@
 
 #manage-posts-overview h2 {
     font-size: 24px;
-    color: #333;
+    color: white;    /*added this */
     margin-bottom: 20px;
+
 }
 
 .manage-display-posts-container {
     width: 600px;
+    gap: 20px;
+
 }
 
 .manage-post-tile {
@@ -23,9 +26,13 @@
     margin-bottom: 15px;
 }
 
+
 .manage-post-info {
     margin-bottom: 15px;
+    color: white;       /*added this */
+    padding-bottom: 5px;   /*added this */
 }
+
 
 .post-images {
     display: flex;
@@ -40,31 +47,13 @@
     object-fit: cover;
     border-radius: 5px;
     margin: 5px;
+    padding-top: 5px; /*added this */
 }
 
 .manage-tag-display {
     display: flex;
     flex-wrap: wrap;
-}
-
-.managePost-button {
-    margin-top: 10px;
-}
-
-.managePost-update,
-.managePost-delete {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    text-transform: uppercase;
-}
-
-.managePost-update:hover{
-    background-color: #0056b3;
+    color: white;        /*added this */
 }
 
 .manage-tag-display{
@@ -73,17 +62,18 @@
 
 .managePost-title{
     word-break: break-all;
+    color: white;       /*added this */
+    border-bottom: solid white 2px; /*added this */
 }
 .managePost-body{
     word-break: break-all;
+    color: white;        /*added this */
+    padding-bottom: 5px;     /*added this */
 }
 
 
-.upd-delBtn{
-    color:blue;
-    border-radius: 5px;
-}
-
-button{
-    border-radius: 5px;
+.manage-button {         /*added this */
+    display: flex;           /*added this */
+    justify-content: center;  /*added this */
+    margin-top: 10px;        /*added this */
 }

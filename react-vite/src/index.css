@@ -8,6 +8,18 @@
       font-family: "PT Sans Narrow", sans-serif;
   font-weight: 600;
   font-style: normal;
-  background-color: #2f2f2f;
-  color: white;
+  /* background-color: #2a475e; */
+  /* color: black; */
+
+
+}
+
+body {
+  /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=3872ab&c2=021a28&gt=l&gd=dbb
+*/
+background: #3872AB;
+background: linear-gradient(0deg, #3872AB, #021A28);
+box-sizing: border-box;
 }

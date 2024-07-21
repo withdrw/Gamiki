@@ -7,44 +7,54 @@
   font-style: normal;
 }
 
-/* .pt-sans-narrow-bold {
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-} */
 
-.commentmodal-content {
-    padding: 20px;
-    width: 500px;
+.create-comment-modal{
+  width: 700px;
+  height: 500px;
+  background-color: rgb(132, 156, 183);   /* added this*/
+  border-radius: 15px;
+  padding-top: 0px;
 }
 
-.comment-title{
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-.comment-submit {
-  border-radius: 5px;
-  color: beige;
-  padding: 5px
-}
-.submit-Comment{
-  padding-left: 20px;
-}
-
-.comment-msg{
-  resize: none;
-   transition: background-color 0.2s ease-in-out;
-}
-
-.comment-submit:hover{
-  cursor: pointer;
-  background-color: black;
+.createModal-content{
   color: white;
+  display: flex;  /* added this*/
+  flex-direction: column;
+  padding: 20px;  /* added this*/
+  border-radius: 15px;    /* added this*/
+  overflow: auto;     /* added this*/
+  justify-content: space-between;
 }
 
-.comment-msg:hover {
-     border-color: #eeeeee;
-    box-shadow: 0 0 20px rgba(23, 243, 3, 0.5);
+.createModal-content h2{
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.createModal-content textarea {   /* added this*/
+  width: 100%;    /* added this*/
+  height: 150px;  /* added this*/
+  padding: 10px;  /* added this*/
+  border-radius: 5px;     /* added this*/
+  resize: none;   /* added this*/
+}
+
+.createComment-btn{
+  justify-content: center;    /* added this*/
+  padding-top: 30px;
+}
+.createComment-sub{
+  padding: 5px 10px;      /* added this*/
+  font-size: 16px;        /* added this*/
+  border: none;           /* added this*/
+  background-color: rgb(114, 114, 204);       /* added this*/
+  color: #fff;        /* added this*/
+  cursor: pointer;        /* added this*/
+  border-radius: 5px;     /* added this*/
+}
+
+.createComment-sub:hover {      /* added this*/
+  color: black;
+  background-color: white;
+  cursor: pointer;
 }

@@ -49,21 +49,26 @@ const CreateComment = () => {
     };
 
     return (
-        <div className="create-comment-modal">
-            <div className="modal-content">
-                <span className="close" onClick={closeModal}></span>
-                <h2> Write your comment here: </h2>
-                <textarea
-                    value={body}
-                    onChange={handleBodyChange}
-                    placeholder="Body"
-                />
-                <p className="char-counter">{bodyTyped} characters count</p>
-            </div>
-            {errors.body && <p className="error-message">{errors.body}</p>}
-            {errors.general && <p className="error-message">{errors.general}</p>}
-            <button onClick={handleSubmit}> Submit </button>
+      <div className="create-comment-modal">
+        <div className="createModal-content">
+          <span className="close" onClick={closeModal}></span>
+          <h2> Write your comment here: </h2>
+          <textarea
+            value={body}
+            onChange={handleBodyChange}
+            placeholder="Body"
+          />
+          <p className="char-counter">{bodyTyped} characters count</p>
+          {errors.body && <p className="error-message">{errors.body}</p>}
+          {errors.general && <p className="error-message">{errors.general}</p>}
+          <div className="createComment-btn">
+            <button className="createComment-sub" onClick={handleSubmit}>
+              {" "}
+              Submit{" "}
+            </button>
+          </div>
         </div>
+      </div>
     );
 };
 

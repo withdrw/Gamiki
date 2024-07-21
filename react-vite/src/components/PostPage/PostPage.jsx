@@ -86,7 +86,7 @@ const PostPage = () => {
             ))}
         </div>
         <p className="page-body">{body}</p>
-        <p>Likes: {likes}</p>
+        <p className="page-likes">Likes: {likes}</p>
         <div id="like-buttons">
           {userId ? (
             isLiked ? (
@@ -105,12 +105,12 @@ const PostPage = () => {
           )}
         </div>
 
-        <h2>Comments</h2>
+        <h2>Comments: </h2>
         <div className="comments-list">
           {comments.map((comment) => (
             <div key={comment.id} className="comment-page">
+              <p className="page-owner">{comment.author}:</p>
               <p className="page-comment">{comment.body}</p>
-              <p className="page-owner">{comment.author}</p>
             </div>
           ))}
         </div>

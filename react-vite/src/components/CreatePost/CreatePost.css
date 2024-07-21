@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 800px;
+  height: 900px;
 }
 
 .createpost-form {
@@ -22,11 +22,13 @@
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
+  color: white;
 }
 
 .createpost-content label {
   display: block;
   margin-bottom: 5px;
+  color: white;
 }
 
 .createpost-content input,
@@ -34,6 +36,7 @@
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
+  resize: none;
 }
 
 .createpost-content .form-group {
@@ -45,13 +48,13 @@
 }
 
 .createpost-content .error {
-  color: red;
+  color: rgb(5, 247, 231);  /* Style error messages */
 }
 
 .createpost-content button {
   width: 100%;
   padding: 10px;
-  background-color: #01060c;
+  background-color: rgb(114, 114, 204);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -62,8 +65,13 @@
 }
 
 .create-btn:hover{
-    color: #01060c;
-    background-color: white;
+  background-color: white;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+.create-btn{
+  color: white;
 }
 
 #charCount {
@@ -77,4 +85,14 @@
 
 .createpost-body{
   resize: none;
+}
+
+.char-counter{
+  color: rgb(255, 0, 0);
+  letter-spacing: 1.5px;
+}
+
+.upload-button{
+  color:red;
+  letter-spacing: 1.5px;
 }

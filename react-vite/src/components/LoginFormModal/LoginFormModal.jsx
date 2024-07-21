@@ -93,7 +93,8 @@ function LoginFormModal() {
         </label>
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
-        <button className="signup-modal"
+        <button
+          className="signup-modal"
           onClick={(e) => {
             handleDemoLogin(e);
           }}

@@ -1,75 +1,71 @@
-.editModal {
-border-radius: 5px;
-padding: 20px;
-width: 600px;
-margin: 0 auto;
+.photo-image{
+    width: 300px;
+}
+.editPost-modal{
+  width: 700px;
+  height: 650px;
+  background-color: rgb(132, 156, 183);   /* added this*/
+  border-radius: 15px;
+  padding-top: 0px;
+
 }
 
-.editModal-content {
-display: flex;
-flex-direction: column;
+.editPost-header h2{
+    text-align: center; /* added this*/
+    padding-bottom: 5px;    /* added this*/
 }
 
-.closeModal {
-position: absolute;
-top: 10px;
-right: 10px;
-cursor: pointer;
+.editPost-content {        /* added this*/
+    color: white;   /* added this*/
+    display: flex;  /* added this*/
+    flex-direction: column;     /* added this*/
+    padding: 20px;  /* added this*/
+    background-color: rgba(32, 93, 159, 0.098);     /* added this*/
+    border-radius: 15px;    /* added this*/
+    overflow: auto;     /* added this*/
+    justify-content: space-between; /* added this*/
+  }
+
+.editPost-content input {  /* added this*/
+    width: 70%; /* added this*/
+    padding: 5px;   /* added this*/
+    border-radius: 5px; /* added this*/
+    display: flex;  /* added this*/
 }
 
-.edit-Main{
-font-size: 1.5em;
-margin-bottom: 10px;
+.editPost-content textarea {   /* added this*/
+    width: 100%;    /* added this*/
+    height: 150px;  /* added this*/
+    padding: 10px;  /* added this*/
+    border-radius: 5px;     /* added this*/
+    resize: none;   /* added this*/
 }
 
-.editTitle {
-width: 100%;
-padding: 5px;
-margin-bottom: 10px;
-border: 1px solid #ccc;
-border-radius: 3px;
-}
+.editPost-content label {  /* added this*/
+    justify-content: space-between; /* added this*/
+    align-items: center;    /* added this*/
+    width: 100%;    /* added this*/
+    margin-bottom: 10px;    /* added this*/
+    padding: 5px;   /* added this*/
+  }
 
-.editError {
-color: red;
-}
+  .edit-Modal-btn {  /* added this*/
+    justify-content: center;    /* added this*/
+    padding-top: 10px;
+  }
 
-.editError {
-color: red;
-}
-
-.photo {
-margin-bottom: 10px;
-}
-
-.editPhoto-preview {
-margin-bottom: 10px;
-}
-
-.editPhoto-image {
-max-width: 100%;
-height: auto;
-}
-
-.upload-button {
-margin-top: 5px;
-}
-
-.updateBtn {
-background-color: #02070c;
-color: white;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-cursor: pointer;
-}
-
-.updateBtn:hover{
+  .edit-modal-update {      /* added this*/
+    padding: 5px 10px;      /* added this*/
+    font-size: 16px;        /* added this*/
+    border: none;           /* added this*/
+    background-color: rgb(114, 114, 204);       /* added this*/
+    color: #fff;        /* added this*/
+    cursor: pointer;        /* added this*/
+    border-radius: 5px;     /* added this*/
+  }
+  .edit-modal-update:hover {      /* added this*/
     color: black;
     background-color: white;
-}
+    cursor: pointer;
 
-.editBodyModal{
-    resize: none;
-
-}
+  }
