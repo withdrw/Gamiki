@@ -12,7 +12,9 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
   const [image, setImage] = useState(null);
   const [imageUrl] = useState(post.images?.[0]?.imageUrl || "");
   const [imageLoading, setImageLoading] = useState(false);
-  const [errors,setErrors] = useState('')
+  const [errors, setErrors] = useState('')
+    const [titleRemaining, setTitleRemaining] = useState(30);
+    const [bodyTyped, setBodyTyped] = useState(body.length);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -34,6 +36,20 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
       setErrors([]);
     }
   };
+
+    const handleTitleChange = (e) => {
+      const value = e.target.value;
+      if (value.length <= 30) {
+        setTitle(value);
+        setTitleRemaining(30 - value.length);
+      }
+    };
+
+    const handleBodyChange = (e) => {
+      const value = e.target.value;
+      setBody(value);
+      setBodyTyped(value.length);
+    };
 
   const handleUpdate = async () => {
     const errors = {};
@@ -88,10 +104,11 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
           <input
             type="text"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={handleTitleChange}
             placeholder="Title"
           />
         </label>
+        <p className="char-counter">{titleRemaining} characters remaining</p>
         {errors.title && <p className="error">{errors.title}</p>}
         <label>
           {" "}
@@ -99,10 +116,11 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
           <textarea
             rows={4}
             value={body}
-            onChange={(e) => setBody(e.target.value)}
+            onChange={handleBodyChange}
             placeholder="Body"
           />
         </label>
+        <p className="char-counter">{bodyTyped} characters count</p>
         {errors.body && <p className="error">{errors.body}</p>}
         <div className="photo">
           {imageUrl && (

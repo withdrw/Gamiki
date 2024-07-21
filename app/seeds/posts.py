@@ -10,7 +10,7 @@ def seed_posts():
     )
     post2 = Post(
         title = "CSGO 4K on Mirage",
-        body = 'Slight 4K none too big ya feel me , let me know in the comments what yall think about the clip, all heads btw .',
+        body = 'Slight 4K none too big ya feel me , let me know in the comments what yall think about the clip, all heads btw . Also let me know if anyone wants to play some comp or prem currently GN1.',
         user_id = 1,
     )
     post3 = Post(
