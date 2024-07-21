@@ -70,6 +70,8 @@ function LoginFormModal() {
 
   return (
     <>
+      <div className="login-container">
+
       <h1 className="login-class">Log In</h1>
       <form className="login-modal" onSubmit={handleSubmit}>
         <label>
@@ -79,7 +81,7 @@ function LoginFormModal() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
+            />
         </label>
         {errors.email && <p>{errors.email}</p>}
         <label>
@@ -89,7 +91,7 @@ function LoginFormModal() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
+            />
         </label>
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
@@ -99,10 +101,11 @@ function LoginFormModal() {
             handleDemoLogin(e);
           }}
           type="sign-up"
-        >
+          >
           Login as demo user
         </button>
       </form>
+          </div>
     </>
   );
 }

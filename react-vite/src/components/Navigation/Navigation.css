@@ -6,7 +6,6 @@
 
 }
 
-
 .navbar-items {
   display: flex;
   justify-content: space-between;
@@ -71,4 +70,19 @@ text-align: start;
   background-color: white;
   cursor: pointer;
   color: rgb(0, 0, 0);
+}
+.profile-btn{
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.gamepad-icon{
+  font-size: 20px;
+  color: white;
+  padding-top: 5px;
+}
+
+.profile-dropdown{
+  padding: 8px;
+  left: 92%;
 }

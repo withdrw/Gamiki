@@ -69,3 +69,25 @@
     cursor: pointer;
 
   }
+
+
+  .editPost-modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.editPost-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.editPost-content input,
+.editPost-content textarea,
+.editPost-content label {
+  width: 100%;
+}
+
+.edit-Modal-btn {
+  display: flex;
+  justify-content: flex-end;
+}

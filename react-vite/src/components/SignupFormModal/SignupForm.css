@@ -7,7 +7,8 @@
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: rgba(132, 156, 183, 0.771);
-  height: 350px;
+  height: 450px;
+  width: 600px;
 }
 
 .signup-form label {

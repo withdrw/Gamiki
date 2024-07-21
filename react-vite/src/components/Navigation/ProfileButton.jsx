@@ -53,9 +53,9 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={toggleMenu}>
+      <button className="profile-btn" onClick={toggleMenu}>
         {/* <FaUserCircle /> */}
-        <FaGamepad />
+        <FaGamepad className="gamepad-icon" />
         {/* <FaUserNinja /> */}
       </button>
       {showMenu && (

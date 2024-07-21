@@ -23,3 +23,13 @@ background: #3872AB;
 background: linear-gradient(0deg, #3872AB, #021A28);
 box-sizing: border-box;
 }
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

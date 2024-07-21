@@ -97,6 +97,7 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
           {" "}
           Description:
           <textarea
+            rows={4}
             value={body}
             onChange={(e) => setBody(e.target.value)}
             placeholder="Body"
