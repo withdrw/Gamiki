@@ -69,19 +69,22 @@ const ManagePost = () => {
                   </div>
                   <p>Date: {new Date(post.timeCreated).toLocaleDateString()}</p>
                 </div>
-                <div className="manage-button">
+                <div className="managePost-button">
+                  <div className="upd-delBtn">
                   <OpenModalButton
                     buttonText="Update"
-                    className="manage-update"
+                    className="managePost-update"
                     modalComponent={<ManagePostModal reloadBool={forceReload} reload={setForceReload} post={post} />}
-                  />
+                    />
                 </div>
-                <div className="manage-button">
+                <span className="btnSpace" ></span>
+                <div className="managePost-button">
                   <OpenModalButton
                     buttonText="Delete"
-                    className="manage-delete"
+                    className="managePost-delete"
                     modalComponent={<DeletePost post={post} />}
-                  />
+                    />
+                    </div>
                 </div>
               </div>
             ))}

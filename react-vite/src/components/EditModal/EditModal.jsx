@@ -76,29 +76,33 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
   };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}></span>
-        <h2>Edit Post</h2>
+    <div className="editModal">
+      <div className="editModal-content">
+        <span className="closeModal" onClick={onClose}></span>
+        <h2 className="edit-Main" >Edit Post</h2>
         <input
+          className="editTitle"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
         />
-        {errors.title && <p className="error">{errors.title}</p>}
+        {errors.title && <p className="editError">{errors.title}</p>}
         <textarea
+          rows={5}
+          cols={20}
+          className="editBodyModal"
           value={body}
           onChange={(e) => setBody(e.target.value)}
           placeholder="Body"
         />
-        {errors.body && <p className="error">{errors.body}</p>}
+        {errors.body && <p className="editError">{errors.body}</p>}
         <div className="photo">
           {imageUrl && (
-            <div className="photo-preview">
+            <div className="editPhoto-preview">
               <p>Current Image:</p>
               <img
-                className="photo-image"
+                className="editPhoto-image"
                 src={imageUrl}
                 alt="Current Post Image"
               />
@@ -112,7 +116,7 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
           />
           {imageLoading && <p>Loading...</p>}
         </div>
-        <button onClick={handleUpdate}>Update</button>
+        <button className="updateBtn" onClick={handleUpdate}>Update</button>
       </div>
     </div>
   );

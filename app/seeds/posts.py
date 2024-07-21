@@ -4,22 +4,22 @@ from datetime import datetime
 
 def seed_posts():
     post1 = Post(
-        title = "GTA V",
+        title = "Chilling on GTA V ",
         body = 'Was just chilling in someones car (it was stolen and I didnt want to leave ), he told me to get out and I am glad I didnt because this was the outcome of that.',
         user_id = 1,
     )
     post2 = Post(
-        title = "CSGO",
+        title = "CSGO 4K on Mirage",
         body = 'Slight 4K none too big ya feel me , let me know in the comments what yall think about the clip, all heads btw .',
         user_id = 1,
     )
     post3 = Post(
-        title = "Elden Ring",
+        title = "Elden Ring / Never Win  ",
         body = 'I bought this game thinking oh this would be so easy , I promise you not even 30 mins into it I quit and uninstalled the game. NEVER TOUCHING THIS GAME AGAIN. -10/10, please if anyone wants to buy this from me let me know my email is demo@aa.io.',
         user_id = 2,
     )
     post4 = Post(
-        title = "Rust",
+        title = "Rust (Have not touched this game after this)",
         body = 'Overall great game, you can meet some great people or some not so great people. Like in this image below you can see the base that I built alone and it got raided that night I was pretty upset but still a great game 8/10 ',
         user_id = 3,
     )

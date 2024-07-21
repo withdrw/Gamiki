@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createCommentThunk } from "../../redux/comment";
 import { getPostsThunk } from "../../redux/post";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import './CreateComment.css'
 
 const CreateComment = () => {
     const { postId } = useParams();

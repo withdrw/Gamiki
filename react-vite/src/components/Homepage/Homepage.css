@@ -16,19 +16,19 @@ margin-top: 40px;
     margin: 40px;
 }
 
+.post-content {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: 800px;
+    margin-top: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .post-content:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 12px rgb(255, 255, 255);
+    box-shadow: 0 8px 12px rgba(231, 231, 231, 0.904);
 }
-
-.post-content {
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  width: 800px;
-  margin-top: 25px;
-}
-
 .post-title {
   border-bottom: solid white 2px;
 font-size: 1.5rem;

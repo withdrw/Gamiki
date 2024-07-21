@@ -47,12 +47,12 @@
     flex-wrap: wrap;
 }
 
-.manage-button {
+.managePost-button {
     margin-top: 10px;
 }
 
-.manage-update,
-.manage-delete {
+.managePost-update,
+.managePost-delete {
     padding: 5px 10px;
     background-color: #007bff;
     color: #fff;
@@ -63,8 +63,7 @@
     text-transform: uppercase;
 }
 
-.manage-update:hover,
-.manage-delete:hover {
+.managePost-update:hover{
     background-color: #0056b3;
 }
 
@@ -77,4 +76,14 @@
 }
 .managePost-body{
     word-break: break-all;
+}
+
+
+.upd-delBtn{
+    color:blue;
+    border-radius: 5px;
+}
+
+button{
+    border-radius: 5px;
 }

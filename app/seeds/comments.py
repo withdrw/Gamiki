@@ -6,19 +6,33 @@ from datetime import datetime
 def seed_comments():
     # Answers for post1
     comment1 = Comment(
-        body="first comment for testing",
+        body="Yooo , I feel bad for the other guy . Need to see a clip of this or something loll",
         user_id=1,
         post_id=1,
         is_primary=False
     )
     comment_1_2 = Comment(
-        body="Testing for comments",
+        body="Bro is really him , 3K goes crazyyy",
         user_id=3,
-        post_id=1,
+        post_id=2,
+        is_primary=False
+    )
+    comment3 = Comment(
+        body="I went through the same experince but decided to keep that game and honestly it isnt so bad once you get how the game works.",
+        user_id=1,
+        post_id=3,
+        is_primary=False
+    )
+    comment4 = Comment(
+        body="We have to play this , I miss playing this game been a while since I played whats your steam username or id ? ",
+        user_id=1,
+        post_id=4,
         is_primary=False
     )
     db.session.add(comment1)
     db.session.add(comment_1_2)
+    db.session.add(comment3)
+    db.session.add(comment4)
     db.session.commit()
 def undo_comments():
     if environment == "production":

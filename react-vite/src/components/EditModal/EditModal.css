@@ -1,11 +1,75 @@
-.modal-content {
-    width: 600px;
-    height: 600px;
+.editModal {
+border-radius: 5px;
+padding: 20px;
+width: 600px;
+margin: 0 auto;
 }
-.photo-image{
-    width: 300px;
+
+.editModal-content {
+display: flex;
+flex-direction: column;
 }
-.modal{
-    max-width: 700px;
-    max-height: 600px;
+
+.closeModal {
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+}
+
+.edit-Main{
+font-size: 1.5em;
+margin-bottom: 10px;
+}
+
+.editTitle {
+width: 100%;
+padding: 5px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.editError {
+color: red;
+}
+
+.editError {
+color: red;
+}
+
+.photo {
+margin-bottom: 10px;
+}
+
+.editPhoto-preview {
+margin-bottom: 10px;
+}
+
+.editPhoto-image {
+max-width: 100%;
+height: auto;
+}
+
+.upload-button {
+margin-top: 5px;
+}
+
+.updateBtn {
+background-color: #02070c;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.updateBtn:hover{
+    color: black;
+    background-color: white;
+}
+
+.editBodyModal{
+    resize: none;
+
 }
