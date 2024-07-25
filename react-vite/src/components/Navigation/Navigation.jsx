@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useSelector } from "react-redux";
+import Footer from "./Footer";
 
 
 function Navigation() {
@@ -11,6 +12,7 @@ function Navigation() {
 
 
   return (
+    <>
     <div className="navbar">
       <ul className="navbar-items">
         <li className="navbar-item">
@@ -20,16 +22,21 @@ function Navigation() {
         </li>
         <li className="navbar-item">
             {
-     user && (
-         <NavLink to="/create-post" className="navbar-link">
+              user && (
+                <NavLink to="/create-post" className="navbar-link">
            Create Post
          </NavLink>
      )
-   }
-          <ProfileButton  />
+    }
+          <ProfileButton />
         </li>
       </ul>
     </div>
+    <div>
+      <Footer />
+
+    </div>
+    </>
   );
 }
 
