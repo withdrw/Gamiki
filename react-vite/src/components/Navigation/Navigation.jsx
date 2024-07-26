@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useSelector } from "react-redux";
-import Footer from "./Footer";
 
 
 function Navigation() {
@@ -33,7 +32,7 @@ function Navigation() {
       </ul>
     </div>
     <div>
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
     </>
