@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useSelector } from "react-redux";
-
+import gamiki from '../../Logo/Gamiki2_processed.png'
 
 function Navigation() {
   const user = useSelector((store) => store.session.user)
@@ -16,7 +16,7 @@ function Navigation() {
       <ul className="navbar-items">
         <li className="navbar-item">
           <NavLink to="/" className="navbar-link">
-            Home
+            <img className="logoMain" src={gamiki}  />
           </NavLink>
         </li>
         <li className="navbar-item">

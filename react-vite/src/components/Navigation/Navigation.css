@@ -85,3 +85,8 @@ text-align: start;
   padding: 5px;
   left: 93.6%;
 }
+
+.logoMain{
+  height: 80px;
+  filter: invert(100%);
+}
