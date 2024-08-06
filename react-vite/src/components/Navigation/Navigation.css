@@ -90,3 +90,11 @@ text-align: start;
   height: 80px;
   filter: invert(100%);
 }
+
+@media screen and (max-width: 1024px) {
+  .profile-dropdown {
+    font-size: small;
+    text-wrap: wrap;
+    left: 90%;
+  }
+}
