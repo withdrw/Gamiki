@@ -7,7 +7,6 @@ import "./Homepage.css";
 const Homepage = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
-  console.log("HEYYYYYYY: ", Object.values(posts));
 
   useEffect(() => {
     dispatch(getPostsThunk());

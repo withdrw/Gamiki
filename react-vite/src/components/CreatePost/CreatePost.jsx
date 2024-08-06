@@ -70,9 +70,7 @@ const CreatePost = () => {
       title: title,
       body: body,
     };
-    console.log("this is a new post: ", newPost);
     let response = await dispatch(createPostThunk(newPost));
-    console.log("this is the response: ", response);
 
     if (response.errors) {
       setErrors(response.errors);
@@ -80,17 +78,13 @@ const CreatePost = () => {
 
     if (image) {
       setImageLoading(true);
-      console.log("RESPONSE 1: ", response);
-      console.log("RESPONSE 2: ", image);
       const imageResponse = await dispatch(thunkPostImage(response, image));
-      console.log("imageResponse: ", imageResponse);
       if (imageResponse.errors) {
         setErrors(imageResponse.errors);
       }
       navigate(`/posts/${response.Post.id}`);
     } else {
       const postId = response.Post.id;
-      console.log("new post id: ", postId);
       navigate(`/posts/${postId}`);
       getPostsThunk();
       // dispatch(getPostsThunk());

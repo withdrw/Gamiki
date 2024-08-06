@@ -51,11 +51,9 @@ export const getLikesPost = () => async(dispatch) => {
 
 // CREATE NEW LIKE THUNK
 export const createLikeThunk = (postId) => async(dispatch) => {
-    console.log("IN CREATE LIKE: ", postId)
     const response = await fetch(`/api/posts/${postId}/likes`, {
         method: "POST"
     })
-    console.log("IN CREATE LIKE RESPONSE: ", response)
     if(response.ok) {
         const data = await response.json();
         dispatch(createLike(data.Like));

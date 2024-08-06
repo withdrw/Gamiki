@@ -8,9 +8,7 @@ const DeleteComment = ({ comment }) => {
   const { closeModal } = useModal();
 
   const handleUpdate = async () => {
-    console.log("this is post: ", comment);
     const response = await dispatch(deleteCommentThunk(comment.id));
-    console.log("response:", response);
     if (response) {
       closeModal();
       dispatch(myComments());

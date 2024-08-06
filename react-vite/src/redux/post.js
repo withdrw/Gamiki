@@ -47,7 +47,6 @@ export const getPostsThunk = () => async (dispatch) => {
   if (res.ok) {
     const { Posts } = await res.json();
     dispatch(getPost(Posts));
-    console.log("whattttttt: ", Posts);
   } else {
     const data = await res.json();
     return data.errors;
@@ -69,8 +68,6 @@ export const getOnePostThunk = (id) => async (dispatch) => {
 //EDIT POSTS THUNK
 export const editPostThunk = (post, postId) => async (dispatch) => {
   const id = postId;
-  console.log("in thunk: ", id);
-  console.log("in thunk: ", post);
   const response = await fetch(`/api/posts/${id}`, {
     method: "PUT",
     headers: {
@@ -78,7 +75,6 @@ export const editPostThunk = (post, postId) => async (dispatch) => {
     },
     body: JSON.stringify(post),
   });
-  console.log("in thunk response: ", response);
   if (response.ok) {
     const data = await response.json();
     dispatch(editPost(data.Post));
@@ -94,7 +90,6 @@ export const deletePostThunk = (postId) => async (dispatch) => {
   const response = await fetch(`/api/posts/${postId}`, {
     method: "DELETE",
   });
-  console.log("in thunk delete: ", response);
   if (response.ok) {
     const data = await response.json();
     dispatch(deletePost(data.postId));
@@ -114,7 +109,6 @@ export const createPostThunk = (post) => async (dispatch) => {
     },
     body: JSON.stringify(post),
   });
-  console.log("in thunk create ", response);
   if (response.ok) {
     const data = await response.json();
     dispatch(createPost(data.Post));
@@ -129,8 +123,6 @@ export const createPostThunk = (post) => async (dispatch) => {
 export const thunkPostImage = (post, image) => async (dispatch) => {
   const formData = new FormData();
   formData.append("image", image);
-  console.log("POST redux: ", post);
-  console.log("ADDING IMAGE FOR: ", post.Post.id);
   const res = await fetch(`/api/images/${post.Post.id}`, {
     method: "POST",
     body: formData,

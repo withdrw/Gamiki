@@ -32,7 +32,6 @@ const CreateComment = () => {
         };
 
         const response = await dispatch(createCommentThunk(postId, newComment));
-        console.log(response);
         if (!response.errors) {
             await dispatch(getPostsThunk());
             closeModal();

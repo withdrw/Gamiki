@@ -8,9 +8,7 @@ const DeletePost = ({ post }) => {
   const { closeModal } = useModal();
 
   const handleUpdate = async () => {
-    console.log("this is post: ", post);
     const response = await dispatch(deletePostThunk(post.id));
-    console.log("response:", response);
     if (response) {
       closeModal(); // Close modal if update successful
       dispatch(getPostsThunk());

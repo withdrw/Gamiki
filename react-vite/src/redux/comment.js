@@ -44,7 +44,6 @@ export const myComments = () => async (dispatch) => {
     if (response.ok) {
       const { Comments } = await response.json();
       dispatch(getComments(Comments));
-      console.log("in thunk comment: ", Comments);
       return Comments;
     } else {
       throw new Error("Failed to fetch comments");
@@ -57,8 +56,6 @@ export const myComments = () => async (dispatch) => {
 
 // // EDIT COMMENT THUNK
 export const editCommentThunk = (commentId, comment) => async (dispatch) => {
-  console.log("COMMENT : ", comment);
-  console.log("COMMENT ID: ", commentId);
   const response = await fetch(`/api/comments/${commentId}`, {
     method: "PUT",
     headers: {
@@ -66,7 +63,6 @@ export const editCommentThunk = (commentId, comment) => async (dispatch) => {
     },
     body: JSON.stringify(comment),
   });
-  console.log("in thunk response edit comment: ", response);
   if (response.ok) {
     const data = await response.json();
     dispatch(editComment(data.Comment));
@@ -86,7 +82,6 @@ export const createCommentThunk = (id, comment) => async (dispatch) => {
     },
     body: JSON.stringify(comment),
   });
-  console.log("in thunk create ", response);
   if (response.ok) {
     const data = await response.json();
     dispatch(createComment(data.Comment));

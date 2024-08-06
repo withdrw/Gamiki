@@ -69,10 +69,7 @@ const ManagePostModal = ({ post, onClose , reload ,  reloadBool }) => {
     }
 
     const updatedPost = { title: title, body: body };
-    console.log("updated post: ", updatedPost);
-    // console.log("post id: ")
     const response = await dispatch(editPostThunk(updatedPost, post.id));
-    console.log("response:", response);
     if (response && response.Post) {
       if (image) {
         setImageLoading(true);

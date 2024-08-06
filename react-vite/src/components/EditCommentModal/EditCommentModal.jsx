@@ -24,13 +24,10 @@ const EditCommentModal = ({ comment, onClose }) => {
 
 
     const updatedComment = { body: body };
-    console.log("updated comment: ", updatedComment);
-    console.log("comment id: ", comment.id);
 
     const response = await dispatch(
       editCommentThunk(comment.id, updatedComment)
     );
-    console.log("response:", response);
     if (response && response.Comment) {
       //   dispatch(getAllCommentsThunk());
       closeModal();

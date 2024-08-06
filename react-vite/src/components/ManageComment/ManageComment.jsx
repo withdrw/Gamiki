@@ -9,7 +9,6 @@ import './ManageComment.css'
 const ManageComment = () => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.comments);
-  console.log("comment: ", comments);
 
   useEffect(() => {
     dispatch(myComments());

@@ -29,7 +29,6 @@ const PostPage = () => {
       setTitle(post.title);
       setBody(post.body);
       setLikes(post.likes.length);
-      console.log("IMAGE: ", post.images);
       setComments(post.comments || []);
       if (userId) {
         setIsLiked(post.likes.some((like) => like.user === userId.id));
@@ -53,16 +52,11 @@ const PostPage = () => {
 
   const handleUnlike = async () => {
     try {
-      console.log("HERE: ", post.likes);
-      console.log("POST: ", postId);
-      console.log("THIS IS THE USER IDDD", userId.id);
 
       const likeIdToRemove = post.likes.find((like) => like.user === userId.id);
-      console.log("fknvfk", likeIdToRemove.id);
 
       if (likeIdToRemove) {
         const dispo = await dispatch(removeLikeThunk(likeIdToRemove.id));
-        console.log("-----------------", dispo);
         setIsLiked(false);
         setLikes((prevLikes) => prevLikes - 1);
       }
