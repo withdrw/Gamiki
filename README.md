@@ -199,7 +199,6 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Parameters:**
 
    - `id` (int): ID of the post.
-
    **Response**: Success Response
       * URL: ` /posts/<int:id>`
       * Status Code: 200 OK- Returns a post information from the database. 
@@ -207,7 +206,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          * Content-Type: application/json
    **Body**:
       ```json
-         {
+             {
             "Posts": [
                {
                   "id": 1,
@@ -241,7 +240,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                   ],
                   "ownerId": 1,
                   "title": "Post Title"
-                  
+
                }
             ]
          }
@@ -269,7 +268,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       * Headers:
          * Content-Type: application/json
       **Body**:
-         ```json
+   ```json
             {
                "Post": {
                   "title": "Post Title",
@@ -277,14 +276,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                   "image": "url"
                }
             }
-         ```
-
+```
    **Response**: Success Response
       * Status Code: 201 CREATED- Returns a post information from the database. 
       * Headers:
          * Content-Type: application/json
       **Body**:
-      ```json
+   ``` json
          {
          "Post": {
             "author": "Current User",
@@ -294,22 +292,22 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             "title": "Post Title",
          }
          }
-      ```
+```
+
 
    **Error Reposnse**: Post could not be created
       * Status Code: 400 Bad Request
       * Headers:
          * Content-Type: application/json
       **Body**:
-      ```json
+```json
             {
             "message": "Bad Request",
             "errors": {
                "field": ["error message"]
             }
             }
-      ```
-
+ ```
    ## Update Post: ` /posts/<int:id>`
 
    **Authentication**: Required
