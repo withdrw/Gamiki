@@ -370,18 +370,18 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          }
       ```
       
-       **Error Respone**: Post could not be updated
-        * Status Code: 400 Bad Request
+    **Error Respone**: Post could not be updated
+   * Status Code: 400 Bad Request
           
-          **Body**:
-           ```json
+     **Body**:
+     ```json
                 {
                "message": "Bad Request",
                "errors": {
                   "field": ["error message"]
                }
                 }
-             ```
+     ```
 
      **Error Response**:
      * Status Code: 401 Unauthorized
