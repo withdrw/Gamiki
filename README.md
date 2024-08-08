@@ -520,41 +520,48 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Authentication**: Required 
    
-   **Description**: Create a like for the current user for a post. User must be logged in to create a like 
+   **Description**: Create a like for the current user for a post. User must be logged in to create a like. 
+   
    **Parameters**:
-      - `id` (int): ID of the post to like.
+      - `id` (int): ID of the post to like. 
+      
    **Method**: POST
-
-   **Response**: Success Response
-      * Status Code: 200 OK-  Like was created for post.
-      * Headers:
-         * Content-Type: application/json
+   
+   **Response**: Success Response 
+  
+  * Status Code: 200 OK-  Like was created for post.
+    
+    * Headers:
+      
+      * Content-Type: application/json
+        
       **Body**:
-         ```json
+ ```json
+           {
+   "Like": {
+      "id": 1,
+      "post": {
+         "author": "Post Author Username",
+         "body": "Post Body",
+         "comments": [
             {
-               "Like": {
-                  "id": 1,
-                  "post": {
-                     "author": "Post Author Username",
-                     "body": "Post Body",
-                     "comments": [
-                        {
-                        "author": "Comment Author Username",
-                        "body": "Comment Body",
-                        "id": 1,
-                        "mainPost": 1,
-                        "ownerId": 2,
-                     }
-                     ],
-                     "post_id": 1,
-                     "title": "Post Title",
-                  },
-                  "user_id": 2
-               }
+               "author": "Comment Author Username",
+               "body": "Comment Body",
+               "id": 1,
+               "mainPost": 1,
+               "ownerId": 2
             }
-         ```
-      **Error Response**: Post not found
-      * Status Code: 404 NOT FOUND- Post could not be found.
+         ],
+         "post_id": 1,
+         "title": "Post Title"
+      },
+      "user_id": 2
+   }
+}
+ ```
+
+  **Error Response**: Post not found
+  * Status Code: 404 NOT FOUND- Post could not be found.
       **Body**:
          ```json
             {
