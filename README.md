@@ -518,8 +518,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    ## Create like for a post: `/posts/<int:id>/likes`
 
-   **Authentication**: Required
-   **Description**: Create a like for the current user for a post. User must be logged in to create a like
+   **Authentication**: Required 
+   
+   **Description**: Create a like for the current user for a post. User must be logged in to create a like 
    **Parameters**:
       - `id` (int): ID of the post to like.
    **Method**: POST
