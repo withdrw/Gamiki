@@ -262,13 +262,12 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Authentication:** Required (logged in)
    **Description**: Create a new post and add it to the database.
    **Request**: 
-   
       * Method: POST
       * URL: `/posts`
       * Headers:
          * Content-Type: application/json
       **Body**:
-   ```json
+       ``` json
             {
                "Post": {
                   "title": "Post Title",
@@ -276,13 +275,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                   "image": "url"
                }
             }
-```
-   **Response**: Success Response
-      * Status Code: 201 CREATED- Returns a post information from the database.
-      * Headers:
-         * Content-Type: application/json
-      **Body**:
-   ``` json
+           ```
+       **Response**: Success Response
+          * Status Code: 201 CREATED- Returns a post information from the database.
+          * Headers:
+             * Content-Type: application/json
+            **Body**:
+            ``` 
          {
          "Post": {
             "author": "Current User",
@@ -292,7 +291,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             "title": "Post Title",
          }
          }
-```
+           ```
 
 
    **Error Reposnse**: Post could not be created
