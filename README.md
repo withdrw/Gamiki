@@ -453,11 +453,12 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    
       - `id` (int): ID of the post to comment on.
 
-  **Request**: 
-          * Method: PUT
-          *  URL: ` /posts/<int:id>/comments`
-          * Headers:
-             * Content-Type: application/json
+  **Request**:
+  
+  * Method: PUT
+*  URL: ` /posts/<int:id>/comments`
+  * Headers:
+     * Content-Type: application/json
 
 **Body**: 
   ```json
@@ -504,7 +505,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Error Response**:
    * Status Code: 400 BAD REQUEST
-    **Body**:
+     
+      **Body**:
       ```json
          {
             "message": "Bad Request",
