@@ -256,18 +256,16 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             "message": "Post could not be found"
          }
       ```
-
-   ## Create Post `/posts`
-
-   **Authentication:** Required (logged in)
-   **Description**: Create a new post and add it to the database.
-   **Request**: 
+     ## Create Post `/posts`
+     **Authentication:** Required (logged in)
+     **Description**: Create a new post and add it to the database.
+       **Request**: 
       * Method: POST
       * URL: `/posts`
       * Headers:
          * Content-Type: application/json
-      **Body**:
-       ``` json
+          **Body**:
+           ``` json
             {
                "Post": {
                   "title": "Post Title",
@@ -276,12 +274,12 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                }
             }
            ```
-       **Response**: Success Response
+         **Response**: Success Response
           * Status Code: 201 CREATED- Returns a post information from the database.
           * Headers:
              * Content-Type: application/json
             **Body**:
-            ``` 
+          ```json
          {
          "Post": {
             "author": "Current User",
@@ -294,19 +292,19 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
            ```
 
 
-   **Error Reposnse**: Post could not be created
-      * Status Code: 400 Bad Request
-      * Headers:
-         * Content-Type: application/json
-      **Body**:
-```json
+           **Error Reposnse**: Post could not be created
+          * Status Code: 400 Bad Request
+          * Headers:
+             * Content-Type: application/json
+            **Body**:
+              ``` json
             {
             "message": "Bad Request",
             "errors": {
                "field": ["error message"]
             }
             }
- ```
+               ```
    ## Update Post: ` /posts/<int:id>`
 
    **Authentication**: Required 
