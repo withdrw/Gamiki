@@ -48,38 +48,41 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * URL: /login
   * Headers:
     * Content-Type: application/json
+      
   **Body**:
-      ``` json
+   ``` json
          {
             "email": "example@user.com",
             "password": "password"
          }
-      ```
+   ```
 
    **Response**: Successful Response
    * Status Code: 200 OK- Returns the logged in user's information once authenticated.
    * Headers:
       * Content-Type: application/json
-   **Body**:
-      ```json
+        
+**Body**:
+  ```json
         {
             "id": 1,
             "username": "exampleUser",
             "email": "example@user.com"
          }
-      ```
+  ```
 
    **Error Response**: Invalid credentials
    * Status Code: 401 UNAUTHORIZED
    * Headers:
    * Content-Type: application/json
+     
    **Body**:
-      ```json
+   ```json
          {
             "email": ["Invalid email address"],
             "password": ["Incorrect password"]
          }
-      ```
+  ```
 
 ### LOGOUT USER  `/logout`
 
@@ -90,12 +93,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    * Status Code: 200 OK- Returns message to show user has logged out.
    * Headers:
       * Content-Type: application/json
+        
    **Body**:
-      ```json
+  ```json
          {
          "message": "User logged out"
          }
-      ```
+  ```
 
 ### SIGNUP USER `/signup`
 
@@ -106,8 +110,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * URL: /signup
   * Headers:
     * Content-Type: application/json
-  **Body**:
-    ```json
+
+       **Body**:
+    ``` json
          {
          "username": "newUser",
          "email": "newuser@example.com",
@@ -118,6 +123,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * Status Code: 200 OK- Returns the new user's information
   * Headers:
    * Content-Type: application/json
+     
   **Body**:
    ```json
       {
@@ -130,6 +136,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * Status Code: 401 UNAUTHORIZED
   * Headers:
     * Content-Type: application/json
+      
   **Body**:
    ```json
       {
@@ -149,6 +156,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    * URL: ` /posts`
    * Headers:
       * Content-Type: application/json
+        
       **Body**:
       ```json
          {
@@ -204,6 +212,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
  * Status Code: 200 OK- Returns a post information from the database.
     * Headers:
          * Content-Type: application/json
+           
    **Body**:
       ```json
              {
@@ -250,6 +259,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    * Status Code: 401 UNAUTHORIZED
    * Headers:
       * Content-Type: application/json
+        
    **Body**:
       ```json
          {
@@ -318,6 +328,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Parameters:**
    - `id` (int): ID of the post to edit.
+     
    **Request**:
       * Method: PUT
       * URL: `/posts/<int:id>`
@@ -577,6 +588,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       **Description**: Remove a like for the current user for a post.
     
       **Method**: DELETE
+    
       **Parameters:**
       - `id` (int): ID of post to unlike.
 
