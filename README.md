@@ -641,7 +641,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * Method: PUT
 * URL: ` /comments/<int:id>`
   * Headers:
-         * Content-Type: application/json
+    
+  *  Content-Type: application/json
 
       **Body**:
       ```json
