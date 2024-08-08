@@ -199,10 +199,10 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Parameters:**
    - `id` (int): ID of the post.
 
-     **Response**: Success Response
-      * URL: ` /posts/<int:id>`
-      * Status Code: 200 OK- Returns a post information from the database.
-      * Headers:
+**Response**: Success Response
+ * URL: ` /posts/<int:id>`
+ * Status Code: 200 OK- Returns a post information from the database.
+    * Headers:
          * Content-Type: application/json
    **Body**:
       ```json
