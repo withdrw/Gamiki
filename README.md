@@ -310,7 +310,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
  ```
    ## Update Post: ` /posts/<int:id>`
 
-   **Authentication**: Required
+   **Authentication**: Required 
+   
    **Description**: Update a specific post in the database. The user must be logged in and be the owner of the post to updates.
 
    **Parameters:**
