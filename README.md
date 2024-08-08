@@ -349,9 +349,10 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          }
       ```
       
-     **Error Respone**: Post could not be updated
-      * Status Code: 400 Bad Request
-      **Body**:
+       **Error Respone**: Post could not be updated
+        * Status Code: 400 Bad Request
+          
+          **Body**:
            ```json
                 {
                "message": "Bad Request",
@@ -359,10 +360,11 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                   "field": ["error message"]
                }
                 }
-           ```
+             ```
 
      **Error Response**:
-     * Status Code: 401 Unauthorized 
+     * Status Code: 401 Unauthorized
+       
         **Body**:
          ``` json
             {
@@ -376,22 +378,25 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    ## Delete Post: `/posts/<int:id>`
 
    **Authentication**: Required
+  
    **Description**: Delete a specific post in the database. The user must be logged in and be the owner of the post to delete.
 
    **Parameters**:
    - `id` (int): ID of the post to delete.
 
-   **Response**:  Success Response
-   * Status Code: 200 OK- Deleted a post.
-    **Body**:
-   ```json
-         {
-         "id": 1
-         }
-   ```
-   **Error Response**: Post not found
-   * Status Code: 404 NOT FOUND- Post could not be found.
-    **Body**:
+     **Response**:  Success Response
+      * Status Code: 200 OK- Deleted a post.
+     
+      **Body**:
+     ```json
+           {
+           "id": 1
+           }
+      ```
+     **Error Response**: Post not found
+     * Status Code: 404 NOT FOUND- Post could not be found.
+     
+        **Body**:
       ```json
          {
          "id": null
