@@ -405,13 +405,15 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    ## Get all comments for a post: `/posts/<int:id>/comments`
 
-   **Description**: Get all the comments for a post from the database.
+   **Description**: Get all the comments for a post from the database. 
+   
    **Parameters**:
    - `id` (int): ID of the post to get all comments of.
 
-   **Response**:  Success Response
-   * Status Code: 200 OK- Got all comments.
-    **Body**:
+     **Response**:  Success Response
+     * Status Code: 200 OK- Got all comments.
+     
+      **Body**:
       ```json
          {
             "Posts": [
@@ -431,9 +433,10 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          }
       ```
 
-   **Error Response**: Post not found
-   * Status Code: 404 NOT FOUND- Post could not be found.
-    **Body**:
+     **Error Response**: Post not found
+     * Status Code: 404 NOT FOUND- Post could not be found.
+     
+        **Body**:
       ```json
          {
             "message": "Post could not be found"
