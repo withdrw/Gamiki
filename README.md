@@ -1,6 +1,6 @@
 # Gamiki
 
-Welcome to Gamiki! Gamiki is a game review site where gamers can review games and post pictures, while interacting with other gamers. 
+Welcome to Gamiki! Gamiki is a game review site where gamers can review games and post pictures, while interacting with other gamers.
 
 ### Frameworks and Libraries
 
@@ -11,7 +11,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 # API Documentation
 
 ### USER AUTHENTICATION/AUTHORIZATION
-## Endpoint: ` /`
+## Endpoint: `/`
 **Method**: GET
 
 **Description**: Authenticates a user and returns the user's information if authenticated; else, returns an unauthorized error.
@@ -57,7 +57,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       ```
 
    **Response**: Successful Response
-   * Status Code: 200 OK- Returns the logged in user's information once authenticated. 
+   * Status Code: 200 OK- Returns the logged in user's information once authenticated.
    * Headers:
       * Content-Type: application/json
    **Body**:
@@ -81,13 +81,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          }
       ```
 
-### LOGOUT USER  ` /logout`
+### LOGOUT USER  `/logout`
 
-## Endpoint: ` /logout`
-**Description**: Logs out the current user and returns message. 
+## Endpoint: `/logout`
+**Description**: Logs out the current user and returns message.
 
 **Response**: Success Response
-   * Status Code: 200 OK- Returns message to show user has logged out. 
+   * Status Code: 200 OK- Returns message to show user has logged out.
    * Headers:
       * Content-Type: application/json
    **Body**:
@@ -139,13 +139,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       }
    ```
 
-### POSTS 
-   ## Get All Post 
-   ## Endpoint: ` /posts`
+### POSTS
+   ## Get All Post
+   ## Endpoint: `/posts`
    **Description**: Retrieve all posts from the database including author information, comments, and the number of likes.
 
    **Response**: Success Response
-   * Status Code: 200 OK- Returns all the posts in the database. 
+   * Status Code: 200 OK- Returns all the posts in the database.
    * URL: ` /posts`
    * Headers:
       * Content-Type: application/json
@@ -185,14 +185,14 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                   ],
                   "ownerId": 1,
                   "title": "Post Title"
-                  
+
                }
             ]
          }
-         
+
       ```
 
-   ## Get 1 Post ` /posts/<int:id>`
+   ## Get 1 Post `/posts/<int:id>`
 
    **Description**: Retrieve a post from the database by ID, including author information, comments, and the number of likes.
 
@@ -201,7 +201,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    - `id` (int): ID of the post.
    **Response**: Success Response
       * URL: ` /posts/<int:id>`
-      * Status Code: 200 OK- Returns a post information from the database. 
+      * Status Code: 200 OK- Returns a post information from the database.
       * Headers:
          * Content-Type: application/json
    **Body**:
@@ -278,7 +278,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
 ```
    **Response**: Success Response
-      * Status Code: 201 CREATED- Returns a post information from the database. 
+      * Status Code: 201 CREATED- Returns a post information from the database.
       * Headers:
          * Content-Type: application/json
       **Body**:
@@ -318,10 +318,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Request**:
       * Method: PUT
-      * URL: ` /posts/<int:id>`
+      * URL: `/posts/<int:id>`
       * Headers:
          * Content-Type: application/json
-      
       **Body**:
       ```json
          {
@@ -344,7 +343,6 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
          }
       ```
-
      **Error Respone**: Post could not be updated
       * Status Code: 400 Bad Request
       **Body**:
@@ -368,7 +366,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
             }
          ```
-   
+
    ## Delete Post: `/posts/<int:id>`
 
    **Authentication**: Required
@@ -396,7 +394,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    ## Get all comments for a post: `/posts/<int:id>/comments`
 
-   **Description**: Get all the comments for a post from the database. 
+   **Description**: Get all the comments for a post from the database.
    **Parameters**:
    - `id` (int): ID of the post to get all comments of.
 
@@ -421,7 +419,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             ]
          }
       ```
-      
+
    **Error Response**: Post not found
    * Status Code: 404 NOT FOUND- Post could not be found.
     **Body**:
@@ -434,7 +432,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    ## Create comment for a post: `/posts/<int:id>/comments`
 
    **Authentication**: Required
-   **Description**:Create a comment for a post from the database. User must be logged in to comment on a post. 
+   **Description**:Create a comment for a post from the database. User must be logged in to comment on a post.
    **Parameters**:
       - `id` (int): ID of the post to comment on.
 
@@ -443,7 +441,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       * URL: ` /posts/<int:id>/comments`
       * Headers:
          * Content-Type: application/json
-      
+
       **Body**:
      ```json
          {
@@ -452,7 +450,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       ```
 
    **Response**: Success Response
-      * Status Code: 200 OK-  Comment created. 
+      * Status Code: 200 OK-  Comment created.
       * Headers:
          * Content-Type: application/json
       **Body**:
@@ -494,7 +492,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
          }
       ```
-   
+
    ## Create like for a post: `/posts/<int:id>/likes`
 
    **Authentication**: Required
@@ -504,7 +502,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Method**: POST
 
    **Response**: Success Response
-      * Status Code: 200 OK-  Like was created for post. 
+      * Status Code: 200 OK-  Like was created for post.
       * Headers:
          * Content-Type: application/json
       **Body**:
@@ -549,7 +547,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       - `id` (int): ID of post to unlike.
 
       **Response**: Success Response
-      * Status Code: 200 OK-  Like was created for post. 
+      * Status Code: 200 OK-  Like was created for post.
       * Headers:
          * Content-Type: application/json
       **Body**:
@@ -558,7 +556,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                "id": 1
             }
          ```
-      
+
       **Error Response**: Post not found
       * Status Code: 404 NOT FOUND- Post could not be found.
       **Body**:
@@ -569,10 +567,10 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
          ```
 
-### COMMENTS 
+### COMMENTS
 
    ## Update comment: `/comments/<int:id>`
-   
+
    **Authentication:** Required
    **Description:**
    Update the body of a comment if the user is logged in and is the owner of the comment.
@@ -591,9 +589,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                "body": "Updated comment body",
             }
          ```
-   
+
    **Response**: Success Response
-      * Status Code: 200 OK-  Comment was updated for the post. 
+      * Status Code: 200 OK-  Comment was updated for the post.
       * Headers:
          * Content-Type: application/json
       **Body**:
@@ -650,7 +648,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
     **Method**: DELETE
 
     **Response**: Success Response
-      * Status Code: 200 OK-  Comment for post was deleted. 
+      * Status Code: 200 OK-  Comment for post was deleted.
       * Headers:
          * Content-Type: application/json
       **Body**:
@@ -659,7 +657,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                "id": 1
             }
          ```
-      
+
       **Error Response**: UNAUTHORIZED
       * Status Code: 401 UNAUTHORIZED
       **Body**:
@@ -669,10 +667,3 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                "id": null
             }
          ```
-
-   
-
-
-
-
-      
