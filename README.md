@@ -685,26 +685,32 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    ## Delete comment: `/comments/<int:id>`
 
    **Authentication:** Required
+  
    **Description:**
    Delete the comment if the user is logged in and is the owner of the comment.
+  
    **Parameters:**
    - `id` (int): ID of the comment to be deleted.
     **Method**: DELETE
 
-    **Response**: Success Response
+      **Response**: Success Response
+  
       * Status Code: 200 OK-  Comment for post was deleted.
+        
       * Headers:
+        
          * Content-Type: application/json
+           
       **Body**:
-         ```json
+      ```json
             {
                "id": 1
             }
-         ```
+        ```
 
       **Error Response**: UNAUTHORIZED
       * Status Code: 401 UNAUTHORIZED
-      **Body**:
+        
          **Body**:
          ```json
             {
