@@ -16,7 +16,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
 # Wiki Articles
-[Feature list] (https://github.com/withdrw/Gamiki/wiki/MVP-Features-list)
+[Feature List] (<https://github.com/withdrw/Gamiki/wiki/MVP-Features-list>) | (<https://github.com/withdrw/Gamiki/wiki/DBSchema>)
 
 # API Documentation
 
