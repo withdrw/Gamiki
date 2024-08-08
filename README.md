@@ -310,7 +310,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                   }
                 }
                ```
-   ## Update Post: ` /posts/<int:id>`
+   ## Update Post: `/posts/<int:id>`
 
    **Authentication**: Required 
    
@@ -323,6 +323,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       * URL: `/posts/<int:id>`
       * Headers:
          * Content-Type: application/json
+           
       **Body**:
 
       ``` json
@@ -337,6 +338,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       * Status Code: 200 OK- Returns an updated post
       * Headers:
          * Content-Type: application/json
+           
       **Body**:
       ```json
          {
@@ -346,22 +348,23 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
          }
       ```
+      
      **Error Respone**: Post could not be updated
       * Status Code: 400 Bad Request
       **Body**:
-         ```json
-            {
+           ```json
+                {
                "message": "Bad Request",
                "errors": {
                   "field": ["error message"]
                }
-            }
-         ```
+                }
+           ```
 
      **Error Response**:
-     * Status Code: 401 Unauthorized
-      **Body**:
-         ```json
+     * Status Code: 401 Unauthorized 
+        **Body**:
+         ``` json
             {
             "message": "Unauthorized",
             "errors": {
