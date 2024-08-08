@@ -197,9 +197,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Description**: Retrieve a post from the database by ID, including author information, comments, and the number of likes.
 
    **Parameters:**
-
    - `id` (int): ID of the post.
-   **Response**: Success Response
+
+     **Response**: Success Response
       * URL: ` /posts/<int:id>`
       * Status Code: 200 OK- Returns a post information from the database.
       * Headers:
