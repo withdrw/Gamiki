@@ -296,18 +296,19 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
            ```
 
 
-           **Error Reposnse**: Post could not be created
+           **Error Response**: Post could not be created
           * Status Code: 400 Bad Request
           * Headers:
              * Content-Type: application/json
+               
             **Body**:
               ``` json
-            {
-            "message": "Bad Request",
-            "errors": {
-               "field": ["error message"]
-            }
-            }
+                {
+                  "message": "Bad Request",
+                  "errors": {
+                 "field": ["error message"]
+                  }
+                }
                ```
    ## Update Post: ` /posts/<int:id>`
 
