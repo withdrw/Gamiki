@@ -315,14 +315,14 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Parameters:**
    - `id` (int): ID of the post to edit.
-
    **Request**:
       * Method: PUT
       * URL: `/posts/<int:id>`
       * Headers:
          * Content-Type: application/json
       **Body**:
-      ```json
+
+      ``` json
          {
          "title": "Updated Post title",
          "body": "Updated Post body",
