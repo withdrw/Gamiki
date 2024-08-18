@@ -1,52 +1,102 @@
-.signup-form {
+.signup-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
   background-color: rgba(132, 156, 183, 0.771);
-  height: 450px;
+  border-radius: 8px;
+  padding: 15px;
   width: 600px;
 }
 
-.signup-form label {
+.sign-up {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.signup-form {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%
+}
+
+.signup-form label {
   margin-bottom: 10px;
-  padding: 5px;
+  font-size: 16px;
 }
 
 .signup-form input {
-  width: 70%; /* Make the input 70% of the width of the label */
-  padding: 5px;
-}
-
-.signup-form p {
-  color: rgb(24, 27, 204);  /* Style error messages */
+  width: 100%;
+  padding: 10px;
   margin-top: 5px;
-  letter-spacing: 1.5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .signup-form button {
-  margin-top: 10px; /* Add space above the button */
+  margin-top: 20px;
+  padding: 10px 15px;
   border-radius: 15px;
   background-color: rgb(114, 114, 204);
-  padding: 0px 5px 0px 5px;
-}
-.signup-form button:hover{
-  background-color: white;
+  color: black;
+  border: none;
   cursor: pointer;
+  font-size: 16px;
+  border: 2px solid black;
+}
+
+.signup-form button:hover {
+  background-color: white;
   color: rgb(0, 0, 0);
 }
 
-.sign-up{
-    padding-left: 5px;
-    padding-top: 10px;
-    background-color: rgba(132, 156, 183, 0.771);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+.error-message {
+  color: rgb(24, 27, 204);
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .signup-container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .sign-up {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .signup-form {
+    padding: 5px;
+  }
+
+
+  .signup-form label {
+    font-size: 14px;
+  }
+
+  .signup-form input {
+    padding: 8px;
+  }
+
+  .signup-form button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .signup-form button:hover{
+    background-color: white;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+  }
+
+  .error-message {
+    font-size: 12px;
+  }
 }

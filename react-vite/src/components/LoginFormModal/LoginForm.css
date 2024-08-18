@@ -1,58 +1,115 @@
+.login-main-container {
+  /* display: flex; */
+  flex-direction: column;
+  background-color: rgba(132, 156, 183, 0.771);
+  border-radius: 8px;
+  padding: 20px;
+  width: 600px;
+}
+
+.login-class {
+  margin-bottom: 15px;
+  font-size: 24px;
+  text-align: center;
+}
+
 .login-modal {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 500px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background-color: rgba(132, 156, 183, 0.771);
-  height: 250px;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
 }
 
 .login-modal label {
-  margin-bottom: 10px; /* Add space between each input label */
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .login-modal input {
-  width: 100%; /* Make the input full width */
-  padding: 5px;
+  width: 100%;
+  padding: 10px;
   margin-top: 5px;
-}
-
-.login-modal p {
-  color: rgb(24, 27, 204);
-  margin-top: 5px;
-  letter-spacing: 1.5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: 2px solid black;
 }
 
 .login-modal button {
-  margin-top: 10px;
-  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  width: 50%;
+  border-radius: 15px;
   background-color: rgb(114, 114, 204);
-  padding: 0px 5px 0px 5px;
-
+  padding: 1px 5px 1px 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 2px solid black;
 }
+
 .login-modal button:hover {
   background-color: white;
-  cursor: pointer;
   color: rgb(0, 0, 0);
 }
 
-.signup-modal{
-    margin-top: 5px;
-    padding-bottom: 5px;
+.error-message {
+  color: rgb(24, 27, 204);
+  margin-top: 5px;
+  font-size: 18px;
 }
 
-.login-class{
-    display: flex;
-    justify-content: center;
-    background-color: rgba(132, 156, 183, 0.771);     /* added this*/
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+.signup-modal {
+  margin-top: 10px;
+  background-color: rgb(114, 114, 204);
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-.login-modal {
-  display: flex;
-  height: 350px;
+.signup-modal:hover {
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 768px) {
+  .login-main-container {
+    padding: 15px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .login-class {
+    font-size: 14px;
+  }
+
+  .login-modal input {
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .login-modal .label {
+    font-size: 14px;
+  }
+
+  .login-modal button {
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .error-message {
+    font-size: 16px;
+  }
+
+  .signup-modal {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+  .signup-modal:hover {
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
 }

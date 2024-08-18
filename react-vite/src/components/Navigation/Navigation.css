@@ -1,8 +1,9 @@
 .navbar {
   padding: 10px;
-  border-bottom: solid rgb(255, 255, 255) 4px;
+  border-bottom:  solid rgb(255, 255, 255) 4px;
   color: white;
   position: relative;
+  margin: 0;
 }
 
 .navbar-items {
@@ -91,10 +92,44 @@ text-align: start;
   filter: invert(100%);
 }
 
+
 @media screen and (max-width: 1024px) {
   .profile-dropdown {
     font-size: small;
-    text-wrap: wrap;
-    left: 90%;
+    left: auto;
+    right: 10px;
+    width: auto;
   }
+
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .navbar-items {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .profile-btn {
+    cursor: pointer;
+  }
+
+  .navbar-link {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .navbar-item {
+    display: flex;
+    margin: 10px 0;
+  }
+
+  .logoMain {
+    position:absolute;
+    left:0;
+  }
+
 }

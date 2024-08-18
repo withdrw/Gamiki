@@ -8,7 +8,6 @@
 
 .delete-content{
     padding-left: 10px;
-
 }
 
 .delete-Btns{
@@ -43,4 +42,38 @@
     color: black;
     background-color: white;
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+    .deletePost-modal {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+        margin: 0 auto;
+    }
+
+    .delete-content {
+        padding-left: 5px;
+    }
+
+    .delete-content h1 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .delete-Btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .delete-yes,
+    .delete-no {
+        height: 40px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
 }

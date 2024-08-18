@@ -70,7 +70,6 @@
 
   }
 
-
   .editPost-modal {
   display: flex;
   flex-direction: column;
@@ -90,4 +89,50 @@
 .edit-Modal-btn {
   display: flex;
   justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .editPost-modal {
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .editPost-content {
+    padding: 5px;
+    text-align: center;
+  }
+
+  .editPost-header h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .editPost-content input,
+  .editPost-content textarea {
+    font-size: 0.7rem;
+    width: 100%;
+  }
+
+  .edit-modal-update {
+    font-size: 0.9rem;
+    margin: 0 auto;
+  }
+
+  .editPost-content label {
+    font-size: 0.9rem;
+    display: block;
+    /* text-align: center;  */
+  }
+
+  #char-counter {
+    font-size: 0.5rem;
+    text-align: center;
+    display: block;
+  }
+  .photo-image {
+    width: 200px;
+  }
 }

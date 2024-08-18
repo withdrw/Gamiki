@@ -96,3 +96,32 @@
   color:red;
   letter-spacing: 1.5px;
 }
+
+@media screen and (max-width: 768px) {
+  .createpost-form {
+    width: 90%;
+    height: auto;
+  }
+
+  .createpost-content {
+    margin-bottom: 20px;
+  }
+
+  .createpost-content h1 {
+    font-size: 20px;
+  }
+
+  .createpost-content input,
+  .createpost-content textarea {
+    font-size: 14px;
+  }
+
+  .createpost-content .form-group {
+    margin-bottom: 5px;
+  }
+
+
+  .createpost-content button {
+    padding: 8px;
+  }
+}

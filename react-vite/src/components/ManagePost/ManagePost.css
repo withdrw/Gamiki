@@ -6,7 +6,7 @@
 
 #manage-posts-overview h2 {
     font-size: 24px;
-    color: white;    /*added this */
+    color: white;
     margin-bottom: 20px;
 
 }
@@ -29,8 +29,8 @@
 
 .manage-post-info {
     margin-bottom: 15px;
-    color: white;       /*added this */
-    padding-bottom: 5px;   /*added this */
+    color: white;
+    padding-bottom: 5px;
 }
 
 
@@ -47,7 +47,7 @@
     object-fit: cover;
     border-radius: 5px;
     margin: 5px;
-    padding-top: 5px; /*added this */
+    padding-top: 5px;
 }
 
 .manage-tag-display {
@@ -67,13 +67,43 @@
 }
 .managePost-body{
     word-break: break-all;
-    color: white;        /*added this */
-    padding-bottom: 5px;     /*added this */
+    color: white;
+    padding-bottom: 5px;
 }
 
 
-.manage-button {         /*added this */
-    display: flex;           /*added this */
-    justify-content: center;  /*added this */
-    margin-top: 10px;        /*added this */
+.manage-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .manage-display-posts-container {
+        width: 90%;
+        padding: 0 10px;
+    }
+
+    .manage-post-tile {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .post-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .managePost-title {
+        font-size: 1.25rem;
+    }
+
+    .managePost-body {
+        font-size: 0.875rem;
+    }
+
+    .manage-button {
+        flex-direction: column;
+    }
 }

@@ -46,3 +46,36 @@
     justify-content: center;
     margin-top: 40px;
 }
+
+@media screen and (max-width: 768px) {
+    .deleteComment-modal {
+      width: 90%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .deleteComment-content {
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    .deleteComment-content h1 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .deleteComment-yes,
+    .deleteComment-no {
+        height: 40px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .deleteComment-btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+  }

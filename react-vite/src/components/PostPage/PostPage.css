@@ -7,6 +7,7 @@
   padding: 20px;
   margin-top: 40px;
   height: fit-content;
+  margin-bottom: 20px
 
 }
 
@@ -121,6 +122,64 @@
   padding: 5px 10px 5px 10px;
 }
 
+.manage-btn .disabledBtn{
+  cursor: not-allowed;
+  border: 2px solid white;
+  color: black;
+  padding: 5px 10px 5px 10px;
+
+}
+
+.manage-btn .disabledBtn:hover {
+  cursor: not-allowed;
+  border: 2px solid white;
+  background-color: rgb(114, 114, 204);
+  color: black;
+  padding: 5px 10px 5px 10px;
+}
+
 .page-owner{
   color: rgb(12, 2, 2);
+}
+
+@media screen and (max-width: 768px) {
+  .postpage-container {
+    width: 90%;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .route-images {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .post-contents {
+    margin: 10px;
+  }
+
+  .post-contents h1, .post-contents h2 {
+    font-size: 1.2rem;
+  }
+
+  .likeBtn {
+    padding: 3px 15px;
+  }
+
+  .likeBtn:hover{
+    background-color: #ffffff;
+    cursor: pointer;
+    color: #000000;
+  }
+
+  .manage-btn button {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .manage-btn button:hover {
+    background-color: #dfdfdf;
+    color: black;
+  }
 }

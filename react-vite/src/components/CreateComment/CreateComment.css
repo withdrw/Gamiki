@@ -58,3 +58,36 @@
   background-color: white;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .create-comment-modal {
+    width: 90%;
+    height: auto;
+    max-height: 90%;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .createModal-content {
+    padding: 15px;
+  }
+
+  .createModal-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .createModal-content textarea {
+    height: 120px;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .createComment-btn {
+    padding-top: 20px;
+  }
+
+  .createComment-sub {
+    padding: 5px;
+    font-size: 14px;
+  }
+}

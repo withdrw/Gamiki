@@ -48,3 +48,27 @@
     background-color: white;
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .editComment-modal {
+      width: 90%;
+      height: auto;
+      padding-top: 10px;
+    }
+
+    .editComment-content h2 {
+      font-size: 1.2rem;
+    }
+
+    .editComment-content textarea {
+      height: 150px;
+    }
+
+    .editComment-btn {
+      padding-top: 10px;
+    }
+
+    .editComment-update {
+      font-size: 14px;
+    }
+  }

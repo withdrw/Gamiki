@@ -117,7 +117,7 @@ const PostPage = () => {
             modalComponent={<CreateComment />}
           />
         ) : (
-          <button disabled>Comment </button>
+          <button className="disabledBtn" disabled>Comment </button>
         )}
       </div>
     </div>
