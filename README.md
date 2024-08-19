@@ -268,14 +268,14 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          }
       ```
 
-       ## Create Post `/posts`
-       **Authentication:** Required (logged in)
+     ## Create Post `/posts`
+     **Authentication:** Required (logged in)
    
      **Description**: Create a new post and add it to the database.
-      **Request**: 
-          * Method: POST 
-          * Headers: 
-           * Content-Type: application/json 
+      **Request**:
+     * Method: POST 
+         * Headers: 
+       * Content-Type: application/json 
         
   **Body**:
    ```json
