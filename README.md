@@ -48,13 +48,14 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * URL: /login
   * Headers:
     * Content-Type: application/json
+      
   **Body**:
-      ``` json
+   ``` json
          {
             "email": "example@user.com",
             "password": "password"
          }
-      ```
+   ```
 
    **Response**: Successful Response
    * Status Code: 200 OK- Returns the logged in user's information once authenticated.
