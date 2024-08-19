@@ -519,8 +519,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Error Response**:
    * Status Code: 400 BAD REQUEST
-     
-    **Body**:
+
+ **Body**:
  ```json
          {
             "message": "Bad Request",
@@ -534,15 +534,16 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Authentication**: Required 
    
-   **Description**: Create a like for the current user for a post. User must be logged in to create a like \
+   **Description**: Create a like for the current user for a post. User must be logged in to create a like.
    
    **Parameters**: 
       - `id` (int): ID of the post to like. 
       
    **Method**: POST
 
-   **Response**: Success Response
-      * Status Code: 200 OK-  Like was created for post.
+  **Response**: Success Response 
+   
+  * Status Code: 200 OK-  Like was created for post.
       * Headers:
          * Content-Type: application/json 
          
@@ -570,8 +571,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                }
          }
  ```
- **Error Response**: Post not found
-    * Status Code: 404 NOT FOUND- Post could not be found. 
+ **Error Response**: Post not found 
+ 
+  * Status Code: 404 NOT FOUND- Post could not be found. 
   
   **Body**:
    ```json
