@@ -584,16 +584,20 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
   ## Delete like for a post: `/posts/like/<int:id>`
 
-   **Authentication**: Required
-      **Description**: Remove a like for the current user for a post.
-      **Method**: DELETE
-      **Parameters:**
+   **Authentication**: Required 
+   
+  **Description**: Remove a like for the current user for a post.
+    **Method**: DELETE 
+    
+  **Parameters:**
       - `id` (int): ID of post to unlike.
 
-   **Response**: Success Response
-      * Status Code: 200 OK-  Like was created for post.
-      * Headers:
+   **Response**: Success Response 
+   
+  * Status Code: 200 OK-  Like was created for post.
+    * Headers:
          * Content-Type: application/json
+           
       **Body**:
    ```json
             {
@@ -601,10 +605,11 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
    ```
 
-   **Error Response**: Post not found
-      * Status Code: 404 NOT FOUND- Post could not be found.
-      **Body**:
-         **Body**:
+   **Error Response**: Post not found 
+   
+   * Status Code: 404 NOT FOUND- Post could not be found. 
+    
+  **Body**:
    ```json
             {
                "id": null
@@ -626,15 +631,16 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Request**:
    * Method: PUT
     * URL: ` /comments/<int:id>`
-    * Headers:
+
+* Headers:
      * Content-Type: application/json
 
      **Body**:
-      ```json
+   ```json
             {
                "body": "Updated comment body",
             }
-        ```
+     ```
 
    **Response**: Success Response
       * Status Code: 200 OK-  Comment was updated for the post.
