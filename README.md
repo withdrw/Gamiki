@@ -325,17 +325,20 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
  ```
    ## Update Post: ` /posts/<int:id>`
 
-   **Authentication**: Required
+   **Authentication**: Required 
+   
    **Description**: Update a specific post in the database. The user must be logged in and be the owner of the post to updates.
 
    **Parameters:**
    - `id` (int): ID of the post to edit.
 
-   **Request**:
-      * Method: PUT
-      * URL: `/posts/<int:id>`
-      * Headers:
-         * Content-Type: application/json
+   **Request**: 
+   
+  * Method: PUT
+* URL: `/posts/<int:id>`
+* Headers:
+  
+    * Content-Type: application/json
       **Body**:
       ```json
          {
@@ -349,15 +352,15 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       * Status Code: 200 OK- Returns an updated post
       * Headers:
          * Content-Type: application/json
-      **Body**:
-      ```json
+     **Body**:
+    ```json
          {
             "Post": {
                "body": "Updated Post Body",
                "title": "Updated Post Title",
             }
          }
-      ```
+    ```
      **Error Respone**: Post could not be updated
       * Status Code: 400 Bad Request
       **Body**:
