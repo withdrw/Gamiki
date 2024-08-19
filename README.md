@@ -214,8 +214,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       * Headers:
          * Content-Type: application/json
            
-   **Body**:
-   ```json
+         **Body**:
+           ```json
              {
             "Posts": [
                {
@@ -254,13 +254,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                }
             ]
          }
-      ```
+        ```
 
-   **Error Response**: Post not found
-   * Status Code: 401 UNAUTHORIZED
-   * Headers:
-      * Content-Type: application/json
-   **Body**:
+           **Error Response**: Post not found
+           * Status Code: 401 UNAUTHORIZED
+           * Headers:
+          * Content-Type: application/json
+         **Body**:
       ```json
          {
             "message": "Post could not be found"
