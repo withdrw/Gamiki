@@ -642,11 +642,12 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             }
      ```
 
-   **Response**: Success Response
+**Response**: Success Response
   
-* Status Code: 200 OK-  Comment was updated for the post.
-  * Headers:
-        * Content-Type: application/json
+   * Status Code: 200 OK-  Comment was updated for the post.
+        * Headers:
+          
+            * Content-Type: application/json
     
 **Body**:
   ```json
