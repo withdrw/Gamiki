@@ -462,9 +462,12 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    ## Create comment for a post: `/posts/<int:id>/comments`
 
    **Authentication**: Required
+  
    **Description**:Create a comment for a post from the database. User must be logged in to comment on a post.
-   **Parameters**:
-      - `id` (int): ID of the post to comment on.
+  
+**Parameters**:
+
+   - `id` (int): ID of the post to comment on.
 
  **Request**:
   * Method: PUT
@@ -479,9 +482,11 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          }
      ```
 
-   **Response**: Success Response
-      * Status Code: 200 OK-  Comment created.
-      * Headers:
+   **Response**: Success Response 
+   
+  * Status Code: 200 OK-  Comment created.
+    
+    * Headers:
          * Content-Type: application/json 
          
    **Body**:
