@@ -700,8 +700,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Authentication:** Required 
    
    **Description:**
-   Delete the comment if the user is logged in and is the owner of the comment.
-   **Parameters:**
+   Delete the comment if the user is logged in and is the owner of the comment. 
+   
+**Parameters:**
    - `id` (int): ID of the comment to be deleted.
      
   **Method**: DELETE
@@ -710,7 +711,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * Status Code: 200 OK-  Comment for post was deleted.
       * Headers:
          * Content-Type: application/json
-                 **Body**:
+           
+        **Body**:
       ```json
             {
                "id": 1
@@ -719,10 +721,10 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
       **Error Response**: UNAUTHORIZED
       * Status Code: 401 UNAUTHORIZED
+        
       **Body**:
-         **Body**:
-         ```json
+    ```json
             {
                "id": null
             }
-         ```
+   ```
