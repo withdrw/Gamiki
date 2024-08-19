@@ -723,8 +723,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
       * Status Code: 401 UNAUTHORIZED
         
       **Body**:
-    ```json
+```json
             {
                "id": null
             }
-   ```
+```
