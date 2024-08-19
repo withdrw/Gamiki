@@ -477,7 +477,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
          {
          "body": "Comment Body"
          }
-      ```
+     ```
 
    **Response**: Success Response
       * Status Code: 200 OK-  Comment created.
