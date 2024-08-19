@@ -586,8 +586,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Authentication**: Required 
    
-  **Description**: Remove a like for the current user for a post.
-    **Method**: DELETE 
+  **Description**: Remove a like for the current user for a post. 
+  
+  **Method**: DELETE 
     
   **Parameters:**
       - `id` (int): ID of post to unlike.
@@ -630,8 +631,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Request**:
    * Method: PUT
-    * URL: ` /comments/<int:id>`
-
+     
 * Headers:
      * Content-Type: application/json
 
@@ -643,10 +643,12 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
      ```
 
    **Response**: Success Response
-      * Status Code: 200 OK-  Comment was updated for the post.
-      * Headers:
-         * Content-Type: application/json
-      **Body**:
+  
+* Status Code: 200 OK-  Comment was updated for the post.
+  * Headers:
+        * Content-Type: application/json
+    
+**Body**:
   ```json
          {
             "Comment": {
