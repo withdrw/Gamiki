@@ -107,7 +107,8 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * URL: /signup
   * Headers:
     * Content-Type: application/json
-  **Body**:
+      
+    **Body**:
     ```json
          {
          "username": "newUser",
