@@ -401,6 +401,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    **Response**:  Success Response
    * Status Code: 200 OK- Deleted a post.
+     
     **Body**:
    ```json
          {
@@ -409,12 +410,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    ```
    **Error Response**: Post not found
    * Status Code: 404 NOT FOUND- Post could not be found.
+     
     **Body**:
-      ```json
+  ```json
          {
          "id": null
          }
-      ```
+    ```
 
    ## Get all comments for a post: `/posts/<int:id>/comments`
 
