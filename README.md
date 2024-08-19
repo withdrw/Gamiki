@@ -466,11 +466,11 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Parameters**:
       - `id` (int): ID of the post to comment on.
 
-   **Request**:
-      * Method: PUT
-      * URL: ` /posts/<int:id>/comments`
-      * Headers:
-         * Content-Type: application/json
+ **Request**:
+  * Method: PUT
+  * URL: ` /posts/<int:id>/comments`
+    * Headers:
+        * Content-Type: application/json
 
       **Body**:
      ```json
@@ -482,9 +482,10 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Response**: Success Response
       * Status Code: 200 OK-  Comment created.
       * Headers:
-         * Content-Type: application/json
-      **Body**:
-         ```json
+         * Content-Type: application/json 
+         
+   **Body**:
+```json
             {
             "Comment": {
                "author": "Comment author username",
@@ -509,34 +510,39 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                "ownerId": 2,
             }
             }
-         ```
+ ```
 
    **Error Response**:
    * Status Code: 400 BAD REQUEST
+     
     **Body**:
-      ```json
+ ```json
          {
             "message": "Bad Request",
             "errors": {
                "field": ["error message"]
             }
          }
-      ```
+```
 
    ## Create like for a post: `/posts/<int:id>/likes`
 
-   **Authentication**: Required
-   **Description**: Create a like for the current user for a post. User must be logged in to create a like
-   **Parameters**:
-      - `id` (int): ID of the post to like.
+   **Authentication**: Required 
+   
+   **Description**: Create a like for the current user for a post. User must be logged in to create a like \
+   
+   **Parameters**: 
+      - `id` (int): ID of the post to like. 
+      
    **Method**: POST
 
    **Response**: Success Response
       * Status Code: 200 OK-  Like was created for post.
       * Headers:
-         * Content-Type: application/json
-      **Body**:
-         ```json
+         * Content-Type: application/json 
+         
+  **Body**:
+  ```json
             {
                "Like": {
                   "id": 1,
@@ -557,75 +563,78 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                   },
                   "user_id": 2
                }
-            }
-         ```
-      **Error Response**: Post not found
-      * Status Code: 404 NOT FOUND- Post could not be found.
-      **Body**:
-         ```json
+         }
+ ```
+ **Error Response**: Post not found
+    * Status Code: 404 NOT FOUND- Post could not be found. 
+  
+  **Body**:
+   ```json
             {
                "message": "Post could not be found"
             }
-         ```
+   ```
 
-      ## Delete like for a post: `/posts/like/<int:id>`
+  ## Delete like for a post: `/posts/like/<int:id>`
 
-      **Authentication**: Required
+   **Authentication**: Required
       **Description**: Remove a like for the current user for a post.
       **Method**: DELETE
       **Parameters:**
       - `id` (int): ID of post to unlike.
 
-      **Response**: Success Response
+   **Response**: Success Response
       * Status Code: 200 OK-  Like was created for post.
       * Headers:
          * Content-Type: application/json
       **Body**:
-         ```json
+   ```json
             {
                "id": 1
             }
-         ```
+   ```
 
-      **Error Response**: Post not found
+   **Error Response**: Post not found
       * Status Code: 404 NOT FOUND- Post could not be found.
       **Body**:
          **Body**:
-         ```json
+   ```json
             {
                "id": null
             }
-         ```
+   ```
 
 ### COMMENTS
 
    ## Update comment: `/comments/<int:id>`
 
-   **Authentication:** Required
+   **Authentication:** Required 
+   
    **Description:**
-   Update the body of a comment if the user is logged in and is the owner of the comment.
+   Update the body of a comment if the user is logged in and is the owner of the comment. 
+   
    **Parameters:**
    - `id` (int): ID of the comment to be updated.
 
    **Request**:
-      * Method: PUT
-      * URL: ` /comments/<int:id>`
-      * Headers:
-         * Content-Type: application/json
+   * Method: PUT
+    * URL: ` /comments/<int:id>`
+    * Headers:
+     * Content-Type: application/json
 
-      **Body**:
-        ```json
+     **Body**:
+      ```json
             {
                "body": "Updated comment body",
             }
-         ```
+        ```
 
    **Response**: Success Response
       * Status Code: 200 OK-  Comment was updated for the post.
       * Headers:
          * Content-Type: application/json
       **Body**:
-      ```json
+  ```json
          {
             "Comment": {
                "author": "Comment owner username",
@@ -645,48 +654,52 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
             "user_id": 2,
             }
          }
-      ```
+  ```
 
    **Error Response**: Unauthorized
    * Status Code: 401 UNAUTHORIZED
-    **Body**:
-      ```json
+     
+  **Body**:
+  ```json
          {
          "message": "Not the owner of this Comment"
          }
-      ```
+  ```
 
    **Error Response**: BAD REQUEST
    * Status Code: 404 BAD REQUEST
-    **Body**:
-      ```json
+     
+  **Body**:
+  ```json
         {
             "message": "Bad Request",
             "errors": {
                "field": ["error message"]
             }
          }
-      ```
+  ```
 
    ## Delete comment: `/comments/<int:id>`
 
-   **Authentication:** Required
+   **Authentication:** Required 
+   
    **Description:**
    Delete the comment if the user is logged in and is the owner of the comment.
    **Parameters:**
    - `id` (int): ID of the comment to be deleted.
-    **Method**: DELETE
+     
+  **Method**: DELETE
 
-    **Response**: Success Response
-      * Status Code: 200 OK-  Comment for post was deleted.
+**Response**: Success Response
+  * Status Code: 200 OK-  Comment for post was deleted.
       * Headers:
          * Content-Type: application/json
-      **Body**:
-         ```json
+                 **Body**:
+      ```json
             {
                "id": 1
             }
-         ```
+       ```
 
       **Error Response**: UNAUTHORIZED
       * Status Code: 401 UNAUTHORIZED
