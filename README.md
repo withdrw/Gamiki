@@ -75,13 +75,14 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    * Status Code: 401 UNAUTHORIZED
    * Headers:
    * Content-Type: application/json
+     
    **Body**:
-      ```json
+  ```json
          {
             "email": ["Invalid email address"],
             "password": ["Incorrect password"]
          }
-      ```
+  ```
 
 ### LOGOUT USER  `/logout`
 
@@ -92,12 +93,13 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    * Status Code: 200 OK- Returns message to show user has logged out.
    * Headers:
       * Content-Type: application/json
+        
    **Body**:
-      ```json
+  ```json
          {
          "message": "User logged out"
          }
-      ```
+   ```
 
 ### SIGNUP USER `/signup`
 
@@ -121,6 +123,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
   * Status Code: 200 OK- Returns the new user's information
   * Headers:
    * Content-Type: application/json
+     
   **Body**:
    ```json
       {
