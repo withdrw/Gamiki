@@ -59,8 +59,9 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
    **Response**: Successful Response
    * Status Code: 200 OK- Returns the logged in user's information once authenticated.
    * Headers:
-      * Content-Type: application/json
-   **Body**:
+      * Content-Type: application/json 
+        
+     **Body**:
       ```json
         {
             "id": 1,
