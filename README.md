@@ -260,6 +260,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
            * Status Code: 401 UNAUTHORIZED
            * Headers:
           * Content-Type: application/json
+            
          **Body**:
       ```json
          {
@@ -269,15 +270,17 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 
    ## Create Post `/posts`
 
-   **Authentication:** Required (logged in)
+   **Authentication:** Required (logged in) 
+   
    **Description**: Create a new post and add it to the database.
 
-   **Request**:
-      * Method: POST
-      * URL: `/posts`
-      * Headers:
-         * Content-Type: application/json
-      **Body**:
+  **Request*: 
+        * Method: POST
+        * URL: `/posts` 
+        * Headers: 
+         * Content-Type: application/json 
+        
+  **Body**:
    ```json
             {
                "Post": {
@@ -287,9 +290,10 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
                }
             }
 ```
-   **Response**: Success Response
-      * Status Code: 201 CREATED- Returns a post information from the database.
-      * Headers:
+   **Response**: Success Response 
+   
+   * Status Code: 201 CREATED- Returns a post information from the database.
+  * Headers:
          * Content-Type: application/json 
         
   **Body**:
