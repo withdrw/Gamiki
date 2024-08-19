@@ -10,7 +10,7 @@ Welcome to Gamiki! Gamiki is a game review site where gamers can review games an
 ### Database
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 # Wiki Articles
-[Features List] (<https://github.com/withdrw/Gamiki/wiki/MVP-Features-list>) | [DB Schema] (<https://github.com/withdrw/Gamiki/wiki/DBSchema>)
+[Features List](<https://github.com/withdrw/Gamiki/wiki/MVP-Features-list>) | [DB Schema](<https://github.com/withdrw/Gamiki/wiki/DBSchema>)
 
 # API Documentation
 
